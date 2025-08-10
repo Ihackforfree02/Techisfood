@@ -14,7 +14,6 @@
       height: 100%;
     }
 
-    /* 🌐 Navigation Bar */
     nav {
       position: fixed;
       top: 0;
@@ -66,12 +65,12 @@
       max-width: 900px;
       margin: 2rem auto;
       padding: 2rem;
-      background-color: rgba(0, 0, 0, 0.6); /* 👈 Transparent dark background */
+      background-color: rgba(0, 0, 0, 0.6);
       border-radius: 10px;
       box-shadow: 0 0 20px rgba(255, 0, 127, 0.3);
       min-height: 1000px;
       position: relative;
-      z-index: 10; /* 👈 Above rain */
+      z-index: 10;
     }
 
     .content h2 {
@@ -102,12 +101,12 @@
       left: 0;
       width: 100%;
       height: 100%;
-      pointer-events: none;
+      pointer-events: auto;
       overflow: hidden;
-      z-index: 1; /* 👈 Behind content */
+      z-index: 1;
     }
 
-    .rain span {
+    .rain a {
       position: absolute;
       top: -50px;
       font-size: 1.5rem;
@@ -115,6 +114,7 @@
       color: #ff66b2;
       opacity: 0.5;
       text-shadow: 0 0 8px #ff66b2;
+      text-decoration: none;
     }
 
     @keyframes fall {
@@ -127,13 +127,9 @@
 <body>
   <div class="rain"></div>
 
-  <!-- 🌐 Navigation Bar -->
   <nav>
     <a href="#">Home</a>
     <a href="cool-beaans.html">Recipes</a>
-    <a href="cool-beaans.html">Shipment</a>
-    <a href="cool-beaans.html">Collection</a>
-    
   </nav>
 
   <header>
@@ -163,7 +159,9 @@
   <script>
     const rainContainer = document.querySelector('.rain');
     for (let i = 0; i < 40; i++) {
-      const drop = document.createElement('span');
+      const drop = document.createElement('a');
+      drop.href = 'https://ihackforfree02.github.io/Ihackforfree.github.io/';
+      drop.target = '_blank';
       drop.textContent = '💮';
       drop.style.left = Math.random() * 100 + 'vw';
       drop.style.animationDuration = (Math.random() * 4 + 3) + 's';
