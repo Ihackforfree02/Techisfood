@@ -4,17 +4,45 @@
   <meta charset="UTF-8">
   <title>Dragon Fruit Frenzy</title>
   <style>
-    body {
+    html, body {
       margin: 0;
+      padding: 0;
       font-family: 'Comic Sans MS', cursive, sans-serif;
       background: radial-gradient(circle at center, #ff007f, #ffccf9);
       color: white;
-      overflow: hidden;
+      overflow-y: auto;
+      height: 100%;
+    }
+
+    /* 🌐 Navigation Bar */
+    nav {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      background-color: rgba(0, 0, 0, 0.6);
+      display: flex;
+      justify-content: center;
+      padding: 1rem 0;
+      z-index: 100;
+    }
+
+    nav a {
+      color: white;
+      text-decoration: none;
+      margin: 0 1.5rem;
+      font-size: 1.2rem;
+      font-weight: bold;
+      transition: color 0.3s;
+    }
+
+    nav a:hover {
+      color: #ffccf9;
     }
 
     header {
       text-align: center;
-      padding: 2rem;
+      padding: 5rem 2rem 2rem;
+      margin-top: 3rem;
       background: rgba(0, 0, 0, 0.3);
       animation: pulse 3s infinite;
     }
@@ -34,10 +62,11 @@
     .content {
       max-width: 900px;
       margin: 2rem auto;
-      padding: 1rem;
+      padding: 2rem;
       background-color: rgba(255, 255, 255, 0.1);
       border-radius: 15px;
       backdrop-filter: blur(5px);
+      min-height: 1200px;
     }
 
     .content h2 {
@@ -94,6 +123,12 @@
   <div class="stars"></div>
   <div class="rain"></div>
 
+  <!-- 🌐 Navigation Bar -->
+  <nav>
+    <a href="#">Home</a>
+    <a href="cool-beaans.html">Recipes</a>
+  </nav>
+
   <header>
     <h1>💮 Dragon Fruit Frenzy 💮</h1>
     <p>Where flavor meets fantasy!</p>
@@ -113,6 +148,9 @@
 
     <h2>🔥 Fun Fact</h2>
     <p>Dragon fruit flowers bloom only at night and are pollinated by bats and moths. Talk about a fruit with flair!</p>
+
+    <h2>💮 More to Explore</h2>
+    <p>From smoothies to salads, dragon fruit adds a splash of color and nutrition to any dish. Stay tuned for recipes, tips, and fruity fun!</p>
   </div>
 
   <script>
