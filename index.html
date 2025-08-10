@@ -45,6 +45,8 @@
       padding: 6rem 2rem 2rem;
       margin-top: 3rem;
       background-color: transparent;
+      z-index: 101;
+      position: relative;
     }
 
     header h1 {
@@ -64,10 +66,12 @@
       max-width: 900px;
       margin: 2rem auto;
       padding: 2rem;
-      background-color: rgba(255, 255, 255, 0.05);
+      background-color: rgba(0, 0, 0, 0.6); /* 👈 Transparent dark background */
       border-radius: 10px;
       box-shadow: 0 0 20px rgba(255, 0, 127, 0.3);
       min-height: 1000px;
+      position: relative;
+      z-index: 10; /* 👈 Above rain */
     }
 
     .content h2 {
@@ -100,7 +104,7 @@
       height: 100%;
       pointer-events: none;
       overflow: hidden;
-      z-index: 5;
+      z-index: 1; /* 👈 Behind content */
     }
 
     .rain span {
@@ -109,7 +113,7 @@
       font-size: 1.5rem;
       animation: fall linear infinite;
       color: #ff66b2;
-      opacity: 0.8;
+      opacity: 0.5;
       text-shadow: 0 0 8px #ff66b2;
     }
 
