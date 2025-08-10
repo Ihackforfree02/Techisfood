@@ -7,6 +7,7 @@
     html, body {
       margin: 0;
       padding: 0;
+      padding-top: 80px; /* Prevent nav collision */
       font-family: 'Segoe UI', sans-serif;
       background: linear-gradient(to bottom right, #0f0c29, #302b63, #24243e);
       color: #e0e0e0;
@@ -21,7 +22,7 @@
       display: flex;
       justify-content: center;
       padding: 1rem 0;
-      z-index: 100;
+      z-index: 1000;
       box-shadow: 0 0 10px #ff007f;
     }
 
@@ -41,7 +42,6 @@
     header {
       text-align: center;
       padding: 6rem 2rem 2rem;
-      margin-top: 3rem;
       background-color: transparent;
       z-index: 101;
       position: relative;
