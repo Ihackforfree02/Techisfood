@@ -1,1 +1,75 @@
-Free hacks
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Dragon Fruit Delight</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background: linear-gradient(135deg, #ff007f, #ffe6f0);
+      color: #333;
+      overflow-x: hidden;
+    }
+
+    header {
+      text-align: center;
+      padding: 2rem;
+      background-color: rgba(255, 255, 255, 0.8);
+    }
+
+    header h1 {
+      font-size: 3rem;
+      color: #c2185b;
+    }
+
+    .content {
+      max-width: 800px;
+      margin: 2rem auto;
+      padding: 1rem;
+      background-color: rgba(255, 255, 255, 0.9);
+      border-radius: 10px;
+    }
+
+    .content h2 {
+      color: #d81b60;
+    }
+
+    .dragon {
+      position: absolute;
+      top: 50px;
+      left: -200px;
+      width: 150px;
+      animation: fly 20s linear infinite;
+    }
+
+    @keyframes fly {
+      0% { left: -200px; transform: rotate(0deg); }
+      50% { left: 100vw; transform: rotate(10deg); }
+      100% { left: -200px; transform: rotate(0deg); }
+    }
+  </style>
+</head>
+<body>
+  <img src="https://i.imgur.com/1ZQZ1ZP.png" alt="Dragon Fruit Dragon" class="dragon">
+  <header>
+    <h1>Dragon Fruit Delight</h1>
+    <p>Exotic, vibrant, and delicious!</p>
+  </header>
+  <div class="content">
+    <h2>What is Dragon Fruit?</h2>
+    <p>Dragon fruit, also known as pitaya, is a tropical fruit known for its vivid pink skin and speckled flesh. It's rich in antioxidants, vitamin C, and fiber.</p>
+
+    <h2>Health Benefits</h2>
+    <ul>
+      <li>Boosts immune system</li>
+      <li>Supports digestion</li>
+      <li>Promotes healthy skin</li>
+      <li>Low in calories, high in nutrients</li>
+    </ul>
+
+    <h2>Fun Fact</h2>
+    <p>Despite its fiery name, dragon fruit grows on a cactus and has a refreshingly mild taste—like a cross between kiwi and pear.</p>
+  </div>
+</body>
+</html>
