@@ -2,45 +2,60 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Dragon Fruit Delight</title>
+  <title>Dragon Fruit Frenzy</title>
   <style>
     body {
       margin: 0;
-      font-family: 'Segoe UI', sans-serif;
-      background: linear-gradient(135deg, #ff007f, #ffe6f0);
-      color: #333;
-      overflow-x: hidden;
+      font-family: 'Comic Sans MS', cursive, sans-serif;
+      background: radial-gradient(circle at center, #ff007f, #ffccf9);
+      color: white;
+      overflow: hidden;
     }
 
     header {
       text-align: center;
       padding: 2rem;
-      background-color: rgba(255, 255, 255, 0.8);
+      background: rgba(0, 0, 0, 0.3);
+      animation: pulse 3s infinite;
+    }
+
+    @keyframes pulse {
+      0% { background-color: rgba(0, 0, 0, 0.3); }
+      50% { background-color: rgba(255, 0, 127, 0.5); }
+      100% { background-color: rgba(0, 0, 0, 0.3); }
     }
 
     header h1 {
-      font-size: 3rem;
-      color: #c2185b;
+      font-size: 4rem;
+      color: #fff;
+      text-shadow: 2px 2px #c2185b;
     }
 
     .content {
-      max-width: 800px;
+      max-width: 900px;
       margin: 2rem auto;
       padding: 1rem;
-      background-color: rgba(255, 255, 255, 0.9);
-      border-radius: 10px;
+      background-color: rgba(255, 255, 255, 0.1);
+      border-radius: 15px;
+      backdrop-filter: blur(5px);
     }
 
     .content h2 {
-      color: #d81b60;
+      color: #ffe6f0;
+      text-shadow: 1px 1px #d81b60;
+    }
+
+    .content p, .content ul {
+      font-size: 1.2rem;
     }
 
     .dragon {
       position: absolute;
-      top: 50px;
+      top: 100px;
       left: -200px;
-      width: 150px;
-      animation: fly 20s linear infinite;
+      width: 200px;
+      animation: fly 15s linear infinite;
+      z-index: 10;
     }
 
     @keyframes fly {
@@ -48,28 +63,43 @@
       50% { left: 100vw; transform: rotate(10deg); }
       100% { left: -200px; transform: rotate(0deg); }
     }
+
+    .stars {
+      position: fixed;
+      width: 100%;
+      height: 100%;
+      background: url('https://i.imgur.com/3e5Zz9A.png') repeat;
+      animation: sparkle 20s linear infinite;
+      z-index: -1;
+    }
+
+    @keyframes sparkle {
+      from { background-position: 0 0; }
+      to { background-position: 1000px 1000px; }
+    }
   </style>
 </head>
 <body>
+  <div class="stars"></div>
   <img src="https://i.imgur.com/1ZQZ1ZP.png" alt="Dragon Fruit Dragon" class="dragon">
   <header>
-    <h1>Dragon Fruit Delight</h1>
-    <p>Exotic, vibrant, and delicious!</p>
+    <h1>🍓 Dragon Fruit Frenzy 🐉</h1>
+    <p>Where flavor meets fantasy!</p>
   </header>
   <div class="content">
-    <h2>What is Dragon Fruit?</h2>
-    <p>Dragon fruit, also known as pitaya, is a tropical fruit known for its vivid pink skin and speckled flesh. It's rich in antioxidants, vitamin C, and fiber.</p>
+    <h2>🌵 What is Dragon Fruit?</h2>
+    <p>Dragon fruit, or pitaya, is a tropical cactus fruit bursting with color and nutrients. Its vibrant pink skin and speckled flesh make it a feast for the eyes and the body.</p>
 
-    <h2>Health Benefits</h2>
+    <h2>💪 Superfruit Powers</h2>
     <ul>
-      <li>Boosts immune system</li>
-      <li>Supports digestion</li>
-      <li>Promotes healthy skin</li>
-      <li>Low in calories, high in nutrients</li>
+      <li>High in antioxidants</li>
+      <li>Rich in vitamin C and magnesium</li>
+      <li>Boosts digestion and hydration</li>
+      <li>Low calorie, high fiber</li>
     </ul>
 
-    <h2>Fun Fact</h2>
-    <p>Despite its fiery name, dragon fruit grows on a cactus and has a refreshingly mild taste—like a cross between kiwi and pear.</p>
+    <h2>🔥 Fun Fact</h2>
+    <p>Dragon fruit flowers bloom only at night and are pollinated by bats and moths. Talk about a fruit with flair!</p>
   </div>
 </body>
 </html>
