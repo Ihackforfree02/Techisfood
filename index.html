@@ -2,14 +2,14 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Dragon Fruit Frenzy</title>
+  <title>Dragon Fruit Co.</title>
   <style>
     html, body {
       margin: 0;
       padding: 0;
-      font-family: 'Comic Sans MS', cursive, sans-serif;
-      background: radial-gradient(circle at center, #ff007f, #ffccf9);
-      color: white;
+      font-family: 'Segoe UI', sans-serif;
+      background: linear-gradient(to bottom right, #fce4ec, #f8bbd0);
+      color: #333;
       overflow-y: auto;
       height: 100%;
     }
@@ -19,7 +19,7 @@
       position: fixed;
       top: 0;
       width: 100%;
-      background-color: rgba(0, 0, 0, 0.6);
+      background-color: #880e4f;
       display: flex;
       justify-content: center;
       padding: 1rem 0;
@@ -29,67 +29,57 @@
     nav a {
       color: white;
       text-decoration: none;
-      margin: 0 1.5rem;
-      font-size: 1.2rem;
-      font-weight: bold;
+      margin: 0 2rem;
+      font-size: 1rem;
+      font-weight: 600;
       transition: color 0.3s;
     }
 
     nav a:hover {
-      color: #ffccf9;
+      color: #fce4ec;
     }
 
     header {
       text-align: center;
-      padding: 5rem 2rem 2rem;
+      padding: 6rem 2rem 2rem;
       margin-top: 3rem;
-      background: rgba(0, 0, 0, 0.3);
-      animation: pulse 3s infinite;
-    }
-
-    @keyframes pulse {
-      0% { background-color: rgba(0, 0, 0, 0.3); }
-      50% { background-color: rgba(255, 0, 127, 0.5); }
-      100% { background-color: rgba(0, 0, 0, 0.3); }
+      background-color: #fce4ec;
+      border-bottom: 2px solid #d81b60;
     }
 
     header h1 {
-      font-size: 4rem;
-      color: #fff;
-      text-shadow: 2px 2px #c2185b;
+      font-size: 3rem;
+      color: #880e4f;
+      margin-bottom: 0.5rem;
+    }
+
+    header p {
+      font-size: 1.2rem;
+      color: #6a1b9a;
     }
 
     .content {
       max-width: 900px;
       margin: 2rem auto;
       padding: 2rem;
-      background-color: rgba(255, 255, 255, 0.1);
-      border-radius: 15px;
-      backdrop-filter: blur(5px);
-      min-height: 1200px;
+      background-color: #ffffffcc;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(136, 14, 79, 0.2);
+      min-height: 1000px;
     }
 
     .content h2 {
-      color: #ffe6f0;
-      text-shadow: 1px 1px #d81b60;
+      color: #880e4f;
+      margin-top: 2rem;
     }
 
     .content p, .content ul {
-      font-size: 1.2rem;
+      font-size: 1rem;
+      line-height: 1.6;
     }
 
-    .stars {
-      position: fixed;
-      width: 100%;
-      height: 100%;
-      background: url('https://i.imgur.com/3e5Zz9A.png') repeat;
-      animation: sparkle 20s linear infinite;
-      z-index: -1;
-    }
-
-    @keyframes sparkle {
-      from { background-position: 0 0; }
-      to { background-position: 1000px 1000px; }
+    .content ul {
+      padding-left: 1.2rem;
     }
 
     /* 💮 Raining Dragon Fruits */
@@ -107,9 +97,10 @@
     .rain span {
       position: absolute;
       top: -50px;
-      font-size: 2rem;
+      font-size: 1.2rem;
       animation: fall linear infinite;
-      color: white;
+      color: #d81b60;
+      opacity: 0.6;
     }
 
     @keyframes fall {
@@ -120,7 +111,6 @@
   </style>
 </head>
 <body>
-  <div class="stars"></div>
   <div class="rain"></div>
 
   <!-- 🌐 Navigation Bar -->
@@ -130,37 +120,37 @@
   </nav>
 
   <header>
-    <h1>💮 Dragon Fruit Frenzy 💮</h1>
-    <p>Where flavor meets fantasy!</p>
+    <h1>Dragon Fruit Co.</h1>
+    <p>Premium Tropical Produce for a Healthier Lifestyle</p>
   </header>
 
   <div class="content">
-    <h2>🌵 What is Dragon Fruit?</h2>
-    <p>Dragon fruit, or pitaya, is a tropical cactus fruit bursting with color and nutrients. Its vibrant pink skin and speckled flesh make it a feast for the eyes and the body.</p>
+    <h2>About Dragon Fruit</h2>
+    <p>Dragon fruit, also known as pitaya, is a tropical fruit cultivated from several species of cactus. Known for its vibrant pink skin and speckled flesh, it offers a unique blend of flavor and nutrition that appeals to health-conscious consumers worldwide.</p>
 
-    <h2>💮 Superfruit Powers</h2>
+    <h2>Health Benefits</h2>
     <ul>
-      <li>High in antioxidants</li>
-      <li>Rich in vitamin C and magnesium</li>
-      <li>Boosts digestion and hydration</li>
-      <li>Low calorie, high fiber</li>
+      <li>Rich in antioxidants and vitamin C</li>
+      <li>Supports digestive health with natural fiber</li>
+      <li>Hydrating and low in calories</li>
+      <li>Contains magnesium and essential nutrients</li>
     </ul>
 
-    <h2>🔥 Fun Fact</h2>
-    <p>Dragon fruit flowers bloom only at night and are pollinated by bats and moths. Talk about a fruit with flair!</p>
+    <h2>Our Mission</h2>
+    <p>At Dragon Fruit Co., we are committed to delivering the highest quality tropical produce while promoting sustainable farming practices and healthy living. Our products are sourced from trusted growers and handled with care from farm to table.</p>
 
-    <h2>💮 More to Explore</h2>
-    <p>From smoothies to salads, dragon fruit adds a splash of color and nutrition to any dish. Stay tuned for recipes, tips, and fruity fun!</p>
+    <h2>Explore Recipes</h2>
+    <p>Discover delicious ways to enjoy dragon fruit—from smoothies and salads to gourmet desserts. Visit our <a href="cool-beaans.html" style="color:#d81b60; font-weight:bold;">recipe page</a> to explore creative ideas and nutritional tips.</p>
   </div>
 
   <script>
     const rainContainer = document.querySelector('.rain');
-    for (let i = 0; i < 50; i++) {
+    for (let i = 0; i < 30; i++) {
       const drop = document.createElement('span');
       drop.textContent = '💮';
       drop.style.left = Math.random() * 100 + 'vw';
-      drop.style.animationDuration = (Math.random() * 3 + 2) + 's';
-      drop.style.fontSize = (Math.random() * 1.5 + 1) + 'rem';
+      drop.style.animationDuration = (Math.random() * 4 + 3) + 's';
+      drop.style.fontSize = (Math.random() * 1 + 1) + 'rem';
       rainContainer.appendChild(drop);
     }
   </script>
