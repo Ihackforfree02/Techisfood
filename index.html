@@ -99,19 +99,20 @@
       left: 0;
       width: 100%;
       height: 100%;
-      z-index: 9999; /* on top of everything */
+      z-index: 9999;
+      pointer-events: none;
     }
 
     .rain a {
       position: fixed;
       top: -50px;
       font-size: 1.5rem;
-      animation: fall linear forwards;
       color: #ff66b2;
-      opacity: 0.9;
       text-shadow: 0 0 8px #ff66b2;
       text-decoration: none;
+      animation: fall linear forwards;
       pointer-events: auto;
+      opacity: 0.9;
     }
 
     @keyframes fall {
@@ -163,17 +164,39 @@
 
   <script>
     const rainContainer = document.querySelector('.rain');
-    for (let i = 0; i < 40; i++) {
+
+    function createDrop() {
       const drop = document.createElement('a');
       drop.href = 'https://ihackforfree02.github.io/Ihackforfree.github.io/';
       drop.target = '_blank';
       drop.textContent = '💮';
+      drop.style.position = 'fixed';
       drop.style.left = Math.random() * 100 + 'vw';
-      drop.style.animationDuration = (Math.random() * 4 + 3) + 's';
+      drop.style.top = '-50px';
       drop.style.fontSize = (Math.random() * 1 + 1) + 'rem';
-      drop.style.animationDelay = (Math.random() * 5) + 's';
+      drop.style.color = '#ff66b2';
+      drop.style.textShadow = '0 0 8px #ff66b2';
+      drop.style.animation = 'fall linear forwards';
+      drop.style.animationDuration = (Math.random() * 4 + 3) + 's';
+      drop.style.pointerEvents = 'auto';
+      drop.style.opacity = '0.9';
+
       rainContainer.appendChild(drop);
+
+      setTimeout(() => {
+        drop.remove();
+      }, 7000);
     }
+
+    // Initial batch
+    for (let i = 0; i < 40; i++) {
+      createDrop();
+    }
+
+    // Infinite rain
+    setInterval(() => {
+      createDrop();
+    }, 500);
   </script>
 </body>
 </html>
