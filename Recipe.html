@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Dragon Fruit Recipes</title>
+  <style>
+    html, body {
+      margin: 0;
+      padding: 0;
+      padding-top: 80px;
+      font-family: 'Segoe UI', sans-serif;
+      background: linear-gradient(to bottom right, #0f0c29, #302b63, #24243e);
+      color: #e0e0e0;
+      overflow-x: hidden;
+    }
+
+    nav {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      background-color: #1a1a2e;
+      display: flex;
+      justify-content: center;
+      padding: 1rem 0;
+      z-index: 1000;
+      box-shadow: 0 0 10px #ff007f;
+    }
+
+    nav a {
+      color: #ff007f;
+      text-decoration: none;
+      margin: 0 2rem;
+      font-size: 1rem;
+      font-weight: 600;
+      transition: color 0.3s;
+    }
+
+    nav a:hover {
+      color: #ffffff;
+    }
+
+    header {
+      text-align: center;
+      padding: 6rem 2rem 2rem;
+    }
+
+    header h1 {
+      font-size: 3rem;
+      color: #ff007f;
+      text-shadow: 0 0 10px #ff007f;
+    }
+
+    header p {
+      font-size: 1.2rem;
+      color: #f8bbd0;
+      text-shadow: 0 0 5px #f8bbd0;
+    }
+
+    .content {
+      max-width: 900px;
+      margin: 2rem auto;
+      padding: 2rem;
+      background-color: rgba(0, 0, 0, 0.6);
+      border-radius: 10px;
+      box-shadow: 0 0 20px rgba(255, 0, 127, 0.3);
+    }
+
+    .recipe {
+      margin-bottom: 2rem;
+    }
+
+    .recipe h2 {
+      color: #ff66b2;
+      text-shadow: 0 0 5px #ff66b2;
+    }
+
+    .recipe ul {
+      padding-left: 1.2rem;
+      line-height: 1.6;
+    }
+
+    .recipe p {
+      margin-top: 0.5rem;
+    }
+
+    .rain {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 9999;
+      pointer-events: none;
+    }
+
+    .rain a {
+      position: fixed;
+      top: -50px;
+      font-size: 1.5rem;
+      color: #ff66b2;
+      text-shadow: 0 0 8px #ff66b2;
+      text-decoration: none;
+      animation: fall linear forwards;
+      pointer-events: auto;
+      opacity: 0.9;
+    }
+
+    @keyframes fall {
+      0% { transform: translateY(0); opacity: 1; }
+      80% { opacity: 1; }
+      100% { transform: translateY(100vh); opacity: 0; }
+    }
+  </style>
+</head>
+<body>
+  <div class="rain"></div>
+
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="#">Recipes</a>
+  </nav>
+
+  <header>
+    <h1>Dragon Fruit Recipes</h1>
+    <p>Bright, bold, and bursting with flavor</p>
+  </header>
+
+  <div class="content">
+    <div class="recipe">
+      <h2>🌈 Dragon Fruit Smoothie Bowl</h2>
+      <ul>
+        <li>1 cup frozen dragon fruit chunks</li>
+        <li>1 banana</li>
+        <li>½ cup coconut milk</li>
+        <li>Toppings: granola, kiwi, chia seeds</li>
+      </ul>
+      <p>Blend ingredients until smooth. Pour into a bowl and decorate with your favorite toppings.</p>
+    </div>
+
+    <div class="recipe">
+      <h2>🍰 Dragon Fruit Cheesecake Bites</h2>
+      <ul>
+        <li>1 cup crushed graham crackers</li>
+        <li>2 tbsp melted butter</li>
+        <li>1 cup cream cheese</li>
+        <li>½ cup dragon fruit puree</li>
+        <li>2 tbsp honey</li>
+      </ul>
+      <p>Mix crust and press into mini molds. Blend filling and pour over crust. Chill for 2 hours.</p>
+    </div>
+
+    <div class="recipe">
+      <h2>🍹 Sparkling Dragon Fruit Lemonade</h2>
+      <ul>
+        <li>1 cup dragon fruit juice</li>
+        <li>½ cup lemon juice</li>
+        <li>2 cups sparkling water</li>
+        <li>Mint leaves & ice</li>
+      </ul>
+      <p>Combine juices and sparkling water. Serve over ice with mint garnish.</p>
+    </div>
+  </div>
+
+  <script>
+    const rainContainer = document.querySelector('.rain');
+
+    function createDrop() {
+      const drop = document.createElement('a');
+      drop.href = 'https://ihackforfree02.github.io/Ihackforfree.github.io/';
+      drop.target = '_blank';
+      drop.textContent = '💮';
+      drop.style.position = 'fixed';
+      drop.style.left = Math.random() * 100 + 'vw';
+      drop.style.top = '-50px';
+      drop.style.fontSize = (Math.random() * 1 + 1) + 'rem';
+      drop.style.color = '#ff66b2';
+      drop.style.textShadow = '0 0 8px #ff66b2';
+      drop.style.animation = 'fall linear forwards';
+      drop.style.animationDuration = (Math.random() * 4 + 3) + 's';
+      drop.style.pointerEvents = 'auto';
+      drop.style.opacity = '0.9';
+
+      rainContainer.appendChild(drop);
+
+      setTimeout(() => {
+        drop.remove();
+      }, 7000);
+    }
+
+    for (let i = 0; i < 40; i++) {
+      createDrop();
+    }
+
+    setInterval(() => {
+      createDrop();
+    }, 500);
+  </script>
+</body>
+</html>
