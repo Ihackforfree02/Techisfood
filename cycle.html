@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Dragon Fruit Journey</title>
+  <style>
+    html, body {
+      margin: 0;
+      padding: 0;
+      padding-top: 80px;
+      font-family: 'Segoe UI', sans-serif;
+      background: linear-gradient(to bottom right, #0f0c29, #302b63, #24243e);
+      color: #e0e0e0;
+      overflow-x: hidden;
+    }
+
+    nav {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      background-color: #1a1a2e;
+      display: flex;
+      justify-content: center;
+      padding: 1rem 0;
+      z-index: 1000;
+      box-shadow: 0 0 10px #ff007f;
+    }
+
+    nav a {
+      color: #ff007f;
+      text-decoration: none;
+      margin: 0 2rem;
+      font-size: 1rem;
+      font-weight: 600;
+      transition: color 0.3s;
+    }
+
+    nav a:hover {
+      color: #ffffff;
+    }
+
+    header {
+      text-align: center;
+      padding: 6rem 2rem 2rem;
+    }
+
+    header h1 {
+      font-size: 3rem;
+      color: #ff007f;
+      text-shadow: 0 0 10px #ff007f;
+    }
+
+    header p {
+      font-size: 1.2rem;
+      color: #f8bbd0;
+      text-shadow: 0 0 5px #f8bbd0;
+    }
+
+    .content {
+      max-width: 900px;
+      margin: 2rem auto;
+      padding: 2rem;
+      background-color: rgba(0, 0, 0, 0.6);
+      border-radius: 10px;
+      box-shadow: 0 0 20px rgba(255, 0, 127, 0.3);
+    }
+
+    .section {
+      margin-bottom: 2rem;
+    }
+
+    .section h2 {
+      color: #ff66b2;
+      text-shadow: 0 0 5px #ff66b2;
+    }
+
+    .section ul {
+      padding-left: 1.2rem;
+      line-height: 1.6;
+    }
+
+    .section p {
+      margin-top: 0.5rem;
+    }
+
+    .sources {
+      font-size: 0.9rem;
+      color: #f8bbd0;
+    }
+
+    .sources a {
+      color: #ff66b2;
+      text-decoration: underline;
+    }
+
+    .diagram img {
+      width: 80%;
+      border-radius: 10px;
+      box-shadow: 0 0 20px rgba(255, 0, 127, 0.3);
+    }
+
+    .arrow {
+      font-size: 2rem;
+      color: #ff66b2;
+      margin: 1rem 0;
+    }
+  </style>
+</head>
+<body>
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="cycle.html">Food Journey</a>
+  </nav>
+
+  <header>
+    <h1>🌿 Dragon Fruit's Journey</h1>
+    <p>From cactus to kitchen — how this vibrant fruit reaches your plate</p>
+  </header>
+
+  <div class="content">
+    <div class="section">
+      <h2>🌿 Dragon Fruit Life Cycle</h2>
+      <div style="display: flex; flex-direction: column; align-items: center; gap: 2rem;" class="diagram">
+
+        <!-- Step 1: Growing -->
+        <div style="text-align: center;">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/3e/Dragon_fruit_flower.jpg/640px-Dragon_fruit_flower.jpg" alt="Growing Dragon Fruit">
+          <p><strong>🌱 Growing:</strong> Dragon fruit is cultivated from cactus cuttings, thrives in warm climates, and blooms at night. Farmers use trellises and drip irrigation to support growth.</p>
+        </div>
+
+        <div class="arrow">⬇️</div>
+
+        <!-- Step 2: Packaging -->
+        <div style="text-align: center;">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/1e/Dragon_fruit_in_box.jpg/640px-Dragon_fruit_in_box.jpg" alt="Packaging Dragon Fruit">
+          <p><strong>📦 Packaging:</strong> Fruits are sorted by size and quality, cleaned, and packed into crates or cartons. Pre-cooling helps extend shelf life for export.</p>
+        </div>
+
+        <div class="arrow">⬇️</div>
+
+        <!-- Step 3: Transport -->
+        <div style="text-align: center;">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/2e/Dragon_fruit_market.jpg/640px-Dragon_fruit_market.jpg" alt="Transporting Dragon Fruit">
+          <p><strong>🚚 Transport:</strong> Dragon fruit is shipped in temperature-controlled trucks and exported globally. It reaches markets within 7–10 days of harvest.</p>
+        </div>
+      </div>
+
+      <p class="sources" style="margin-top: 2rem;">
+        Information sourced from 
+        <a href="https://www.agrifarming.in/dragon-fruit-cultivation" target="_blank">AgriFarming</a>, 
+        <a href="https://jemis.ub.ac.id/index.php/jemis/article/download/518/344" target="_blank">JEMIS Supply Chain Study</a>, and 
+        <a href="https://dragonfruit.net.vn/dragon-fruit/172-dragon-fruit-grandes-size-and-packaing-for-exportation.html" target="_blank">Vietnam Dragon Fruit Export Guide</a>.
+      </p>
+    </div>
+  </div>
+</body>
+</html>
