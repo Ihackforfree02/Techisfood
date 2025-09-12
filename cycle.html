@@ -65,27 +65,28 @@
       box-shadow: 0 0 20px rgba(255, 0, 127, 0.3);
     }
 
-    .cycle-diagram {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      align-items: center;
+    .cycle-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      grid-template-rows: repeat(3, 1fr);
       gap: 2rem;
+      justify-items: center;
+      align-items: center;
       position: relative;
     }
 
-    .step {
-      width: 250px;
+    .stage {
+      width: 220px;
       text-align: center;
     }
 
-    .step img {
+    .stage img {
       width: 100%;
       border-radius: 10px;
       box-shadow: 0 0 20px rgba(255, 0, 127, 0.3);
     }
 
-    .step p {
+    .stage p {
       margin-top: 0.5rem;
       font-size: 0.95rem;
     }
@@ -94,14 +95,15 @@
       position: absolute;
       width: 60px;
       height: 60px;
-      background: url('https://upload.wikimedia.org/wikipedia/commons/thumb/3/3c/Arrow_right.svg/120px-Arrow_right.svg.png') no-repeat center;
+      background: url('https://upload.wikimedia.org/wikipedia/commons/3/3c/Arrow_right.svg') no-repeat center;
       background-size: contain;
       filter: drop-shadow(0 0 5px #ff007f);
     }
 
-    .arrow1 { top: 60px; left: 300px; transform: rotate(45deg); }
-    .arrow2 { top: 220px; left: 500px; transform: rotate(135deg); }
-    .arrow3 { top: 380px; left: 300px; transform: rotate(225deg); }
+    .arrow1 { top: 80px; left: 420px; transform: rotate(45deg); }
+    .arrow2 { top: 240px; left: 620px; transform: rotate(135deg); }
+    .arrow3 { top: 400px; left: 420px; transform: rotate(225deg); }
+    .arrow4 { top: 240px; left: 220px; transform: rotate(-45deg); }
 
     .sources {
       font-size: 0.9rem;
@@ -119,37 +121,49 @@
 <body>
   <nav>
     <a href="index.html">Home</a>
-    <a href="Recipe.html">Recipes</a>
-    <a href="cycle.html">The Cycle</a>
+    <a href="recipe.html">Recipes</a>
+    <a href="cycle.html">Food Journey</a>
   </nav>
 
   <header>
     <h1>🌿 Dragon Fruit's Journey</h1>
-    <p>From cactus to consumer — the fast facts</p>
+    <p>Grow → Bloom → Pack → Ship → Repeat</p>
   </header>
 
   <div class="content">
-    <div class="cycle-diagram">
-      <div class="step">
-        <img src="https://upload.wikimedia.org/wikipedia/commons/3/3e/Dragon_fruit_flower.jpg" alt="Growing">
-        <p><strong>Grow:</strong> Grown on cactus vines, blooms at night, hand-harvested.</p>
+    <div class="cycle-grid">
+      <div class="stage">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/3/3e/Dragon_fruit_flower.jpg" alt="Grow">
+        <p><strong>Grow:</strong> Cactus vines sprout and climb.</p>
       </div>
 
       <div class="arrow arrow1"></div>
 
-      <div class="step">
-        <img src="https://upload.wikimedia.org/wikipedia/commons/1/1e/Dragon_fruit_in_box.jpg" alt="Packaging">
-        <p><strong>Pack:</strong> Sorted, cleaned, cooled, packed in crates for export.</p>
+      <div class="stage">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/5/5e/Dragon_fruit_flower_blooming.jpg" alt="Bloom">
+        <p><strong>Bloom:</strong> Flowers bloom at night, fruit forms.</p>
       </div>
 
       <div class="arrow arrow2"></div>
 
-      <div class="step">
-        <img src="https://upload.wikimedia.org/wikipedia/commons/2/2e/Dragon_fruit_market.jpg" alt="Transport">
-        <p><strong>Ship:</strong> Moved in cool trucks, sold globally within days.</p>
+      <div class="stage">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/1/1e/Dragon_fruit_in_box.jpg" alt="Pack">
+        <p><strong>Pack:</strong> Sorted, cleaned, boxed for export.</p>
       </div>
 
       <div class="arrow arrow3"></div>
+
+      <div class="stage">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/2/2e/Dragon_fruit_market.jpg" alt="Ship">
+        <p><strong>Ship:</strong> Delivered to markets worldwide.</p>
+      </div>
+
+      <div class="arrow arrow4"></div>
+
+      <div class="stage">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/3/3e/Dragon_fruit_flower.jpg" alt="Repeat">
+        <p><strong>Repeat:</strong> New vines grow, cycle continues.</p>
+      </div>
     </div>
 
     <div class="sources">
