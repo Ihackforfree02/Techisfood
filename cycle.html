@@ -57,7 +57,7 @@
     }
 
     .content {
-      max-width: 900px;
+      max-width: 1000px;
       margin: 2rem auto;
       padding: 2rem;
       background-color: rgba(0, 0, 0, 0.6);
@@ -65,91 +65,99 @@
       box-shadow: 0 0 20px rgba(255, 0, 127, 0.3);
     }
 
-    .section {
-      margin-bottom: 2rem;
+    .cycle-diagram {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      align-items: center;
+      gap: 2rem;
+      position: relative;
     }
 
-    .section h2 {
-      color: #ff66b2;
-      text-shadow: 0 0 5px #ff66b2;
+    .step {
+      width: 250px;
+      text-align: center;
     }
 
-    .section ul {
-      padding-left: 1.2rem;
-      line-height: 1.6;
+    .step img {
+      width: 100%;
+      border-radius: 10px;
+      box-shadow: 0 0 20px rgba(255, 0, 127, 0.3);
     }
 
-    .section p {
+    .step p {
       margin-top: 0.5rem;
+      font-size: 0.95rem;
     }
+
+    .arrow {
+      position: absolute;
+      width: 60px;
+      height: 60px;
+      background: url('https://upload.wikimedia.org/wikipedia/commons/thumb/3/3c/Arrow_right.svg/120px-Arrow_right.svg.png') no-repeat center;
+      background-size: contain;
+      filter: drop-shadow(0 0 5px #ff007f);
+    }
+
+    .arrow1 { top: 60px; left: 300px; transform: rotate(45deg); }
+    .arrow2 { top: 220px; left: 500px; transform: rotate(135deg); }
+    .arrow3 { top: 380px; left: 300px; transform: rotate(225deg); }
 
     .sources {
       font-size: 0.9rem;
       color: #f8bbd0;
+      margin-top: 2rem;
+      text-align: center;
     }
 
     .sources a {
       color: #ff66b2;
       text-decoration: underline;
     }
-
-    .diagram img {
-      width: 80%;
-      border-radius: 10px;
-      box-shadow: 0 0 20px rgba(255, 0, 127, 0.3);
-    }
-
-    .arrow {
-      font-size: 2rem;
-      color: #ff66b2;
-      margin: 1rem 0;
-    }
   </style>
 </head>
 <body>
   <nav>
     <a href="index.html">Home</a>
+    <a href="recipe.html">Recipes</a>
     <a href="cycle.html">Food Journey</a>
   </nav>
 
   <header>
     <h1>🌿 Dragon Fruit's Journey</h1>
-    <p>From cactus to kitchen — how this vibrant fruit reaches your plate</p>
+    <p>From cactus to consumer — the fast facts</p>
   </header>
 
   <div class="content">
-    <div class="section">
-      <h2>🌿 Dragon Fruit Life Cycle</h2>
-      <div style="display: flex; flex-direction: column; align-items: center; gap: 2rem;" class="diagram">
-
-        <!-- Step 1: Growing -->
-        <div style="text-align: center;">
-          <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/3e/Dragon_fruit_flower.jpg/640px-Dragon_fruit_flower.jpg" alt="Growing Dragon Fruit">
-          <p><strong>🌱 Growing:</strong> Dragon fruit is cultivated from cactus cuttings, thrives in warm climates, and blooms at night. Farmers use trellises and drip irrigation to support growth.</p>
-        </div>
-
-        <div class="arrow">⬇️</div>
-
-        <!-- Step 2: Packaging -->
-        <div style="text-align: center;">
-          <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/1e/Dragon_fruit_in_box.jpg/640px-Dragon_fruit_in_box.jpg" alt="Packaging Dragon Fruit">
-          <p><strong>📦 Packaging:</strong> Fruits are sorted by size and quality, cleaned, and packed into crates or cartons. Pre-cooling helps extend shelf life for export.</p>
-        </div>
-
-        <div class="arrow">⬇️</div>
-
-        <!-- Step 3: Transport -->
-        <div style="text-align: center;">
-          <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/2e/Dragon_fruit_market.jpg/640px-Dragon_fruit_market.jpg" alt="Transporting Dragon Fruit">
-          <p><strong>🚚 Transport:</strong> Dragon fruit is shipped in temperature-controlled trucks and exported globally. It reaches markets within 7–10 days of harvest.</p>
-        </div>
+    <div class="cycle-diagram">
+      <div class="step">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/3/3e/Dragon_fruit_flower.jpg" alt="Growing">
+        <p><strong>Grow:</strong> Grown on cactus vines, blooms at night, hand-harvested.</p>
       </div>
 
-      <p class="sources" style="margin-top: 2rem;">
-        Information sourced from 
+      <div class="arrow arrow1"></div>
+
+      <div class="step">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/1/1e/Dragon_fruit_in_box.jpg" alt="Packaging">
+        <p><strong>Pack:</strong> Sorted, cleaned, cooled, packed in crates for export.</p>
+      </div>
+
+      <div class="arrow arrow2"></div>
+
+      <div class="step">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/2/2e/Dragon_fruit_market.jpg" alt="Transport">
+        <p><strong>Ship:</strong> Moved in cool trucks, sold globally within days.</p>
+      </div>
+
+      <div class="arrow arrow3"></div>
+    </div>
+
+    <div class="sources">
+      <p>
+        Info from 
         <a href="https://www.agrifarming.in/dragon-fruit-cultivation" target="_blank">AgriFarming</a>, 
-        <a href="https://jemis.ub.ac.id/index.php/jemis/article/download/518/344" target="_blank">JEMIS Supply Chain Study</a>, and 
-        <a href="https://dragonfruit.net.vn/dragon-fruit/172-dragon-fruit-grandes-size-and-packaing-for-exportation.html" target="_blank">Vietnam Dragon Fruit Export Guide</a>.
+        <a href="https://jemis.ub.ac.id/index.php/jemis/article/download/518/344" target="_blank">JEMIS</a>, and 
+        <a href="https://dragonfruit.net.vn/dragon-fruit/172-dragon-fruit-grandes-size-and-packaing-for-exportation.html" target="_blank">Vietnam Export Guide</a>.
       </p>
     </div>
   </div>
