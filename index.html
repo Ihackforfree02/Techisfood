@@ -48,6 +48,33 @@
       text-decoration: underline;
     }
 
+    .hero {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: center;
+      padding: 2rem;
+      background: #fff;
+      box-shadow: var(--shadow);
+    }
+
+    .hero img {
+      max-width: 400px;
+      border-radius: 12px;
+      margin: 1rem;
+    }
+
+    .hero-text {
+      max-width: 500px;
+      margin: 1rem;
+    }
+
+    .hero-text h2 {
+      color: var(--primary);
+      font-size: 2rem;
+      margin-bottom: 1rem;
+    }
+
     .container {
       max-width: 1000px;
       margin: 2rem auto;
@@ -64,6 +91,14 @@
 
     ul {
       padding-left: 1.2rem;
+    }
+
+    .section-img {
+      width: 100%;
+      max-width: 600px;
+      border-radius: 12px;
+      margin: 1rem 0;
+      box-shadow: var(--shadow);
     }
 
     .fact-bubble {
@@ -120,6 +155,10 @@
         margin-left: 0;
         margin-right: 1rem;
       }
+
+      .hero {
+        flex-direction: column;
+      }
     }
   </style>
 </head>
@@ -136,10 +175,19 @@
     </nav>
   </header>
 
+  <section class="hero">
+    <img src="https://images.unsplash.com/photo-1601004890684-d8cbf643f5f2" alt="Dragon Fruit Close Up">
+    <div class="hero-text">
+      <h2>Discover the Beauty of Dragon Fruit</h2>
+      <p>Explore the vibrant world of pitaya — from its nutritional power to its tropical origins and delicious uses.</p>
+    </div>
+  </section>
+
   <div class="container">
     <section id="about">
       <h2>About Dragon Fruit</h2>
-      <p>Dragon fruit, also known as pitaya, is a tropical fruit from the cactus family. Known for its vibrant skin and speckled flesh, it’s celebrated for its mild sweetness, hydration, and health benefits. Native to Central America, it’s now cultivated globally, especially in Southeast Asia.</p>
+      <p>Dragon fruit, or pitaya, is a tropical fruit from the cactus family. Known for its vibrant skin and speckled flesh, it’s celebrated for its mild sweetness, hydration, and health benefits. Native to Central America, it’s now cultivated globally, especially in Southeast Asia.</p>
+      <img class="section-img" src="https://raredragonfruit.com.au/cdn/shop/articles/farm.jpg" alt="Dragon Fruit Farm">
     </section>
 
     <section id="nutrition">
@@ -160,6 +208,7 @@
         <li><strong>Popsicles:</strong> Puree dragon fruit with coconut water and freeze in molds.</li>
         <li><strong>Parfait:</strong> Layer dragon fruit with Greek yogurt and granola.</li>
       </ul>
+      <img class="section-img" src="https://www.jessicagavin.com/wp-content/uploads/2020/07/how-to-cut-dragon-fruit-1-1200.jpg" alt="Sliced Dragon Fruit">
     </section>
 
     <section id="facts">
@@ -170,11 +219,6 @@
         <li>Comes in white, red, and yellow-fleshed varieties.</li>
         <li>The cactus plant can live up to 20 years.</li>
         <li>Seeds resemble kiwi seeds and are edible.</li>
-        <li>Red-fleshed dragon fruit is especially high in antioxidants.</li>
-        <li>Dragon fruit is native to Central America but widely grown in Asia.</li>
-        <li>The plant thrives in dry, sunny climates and sandy soil.</li>
-        <li>It’s often used in smoothies, salads, and desserts.</li>
-        <li>Dragon fruit is known for its hydrating properties and vibrant color.</li>
       </ul>
     </section>
   </div>
@@ -201,17 +245,4 @@
     ];
 
     function showFact() {
-      const box = document.getElementById('factBox');
-      const randomFact = facts[Math.floor(Math.random() * facts.length)];
-      box.textContent = randomFact;
-      box.style.display = 'block';
-      setTimeout(() => {
-        box.style.display = 'none';
-      }, 8000);
-    }
-
-    document.getElementById('year').textContent = new Date().getFullYear();
-  </script>
-
-</body>
-</html>
+      const box = document
