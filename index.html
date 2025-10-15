@@ -3,44 +3,63 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>All About Dragon Fruit</title>
+  <title>Dragon Fruit Insights</title>
   <style>
+    :root {
+      --primary: #ff1971;
+      --secondary: #ff66b2;
+      --bg-light: #fff0f5;
+      --bg-dark: #1a1a2e;
+      --text-dark: #2d2d2d;
+      --text-light: #f0f0f0;
+      --card-bg: rgba(255,255,255,0.9);
+      --shadow: 0 6px 20px rgba(0,0,0,0.1);
+      font-family: 'Segoe UI', sans-serif;
+    }
+
     body {
       margin: 0;
-      font-family: 'Segoe UI', sans-serif;
-      background: linear-gradient(to bottom right, #ffdde1, #ee9ca7);
-      color: #2d2d2d;
+      background: linear-gradient(to bottom right, #ffe4e1, #ffdee9);
+      color: var(--text-dark);
     }
 
     header {
-      background: linear-gradient(to right, #ff758c, #ff7eb3);
-      padding: 2rem;
-      text-align: center;
+      background: linear-gradient(to right, var(--primary), var(--secondary));
+      padding: 1.5rem 2rem;
       color: white;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+      box-shadow: var(--shadow);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
     }
 
     header h1 {
       margin: 0;
-      font-size: 3rem;
+      font-size: 2rem;
     }
 
-    header p {
-      font-size: 1.2rem;
-      margin-top: 0.5rem;
+    nav a {
+      color: white;
+      text-decoration: none;
+      margin-left: 1.5rem;
+      font-weight: 600;
+    }
+
+    nav a:hover {
+      text-decoration: underline;
     }
 
     .container {
-      max-width: 900px;
+      max-width: 1000px;
       margin: 2rem auto;
       padding: 1rem 2rem;
-      background: rgba(255, 255, 255, 0.85);
+      background: var(--card-bg);
       border-radius: 12px;
-      box-shadow: 0 0 20px rgba(0,0,0,0.1);
+      box-shadow: var(--shadow);
     }
 
     h2 {
-      color: #d6336c;
+      color: var(--primary);
       margin-top: 2rem;
     }
 
@@ -52,11 +71,11 @@
       position: fixed;
       bottom: 20px;
       right: 20px;
-      background: #ff4d6d;
+      background: var(--primary);
       color: white;
       padding: 1rem 1.2rem;
       border-radius: 50px;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+      box-shadow: var(--shadow);
       cursor: pointer;
       font-weight: bold;
       transition: background 0.3s;
@@ -64,7 +83,7 @@
     }
 
     .fact-bubble:hover {
-      background: #ff1e56;
+      background: var(--secondary);
     }
 
     .fact-box {
@@ -72,47 +91,96 @@
       bottom: 80px;
       right: 20px;
       background: white;
-      color: #333;
+      color: var(--text-dark);
       padding: 1rem;
       border-radius: 12px;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+      box-shadow: var(--shadow);
       max-width: 300px;
       display: none;
       z-index: 999;
+    }
+
+    footer {
+      text-align: center;
+      padding: 1rem;
+      font-size: 0.9rem;
+      color: #777;
+    }
+
+    @media (max-width: 768px) {
+      header {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      nav {
+        margin-top: 0.5rem;
+      }
+
+      nav a {
+        margin-left: 0;
+        margin-right: 1rem;
+      }
     }
   </style>
 </head>
 <body>
 
   <header>
-    <h1>All About Dragon Fruit</h1>
-    <p>Discover the wonders of this vibrant tropical fruit</p>
+    <h1>Dragon Fruit Insights</h1>
+    <nav>
+      <a href="#">Home</a>
+      <a href="#about">About</a>
+      <a href="#nutrition">Nutrition</a>
+      <a href="#recipes">Recipes</a>
+      <a href="#facts">Fun Facts</a>
+    </nav>
   </header>
 
   <div class="container">
-    <h2>🌵 What is Dragon Fruit?</h2>
-    <p>Dragon fruit, also known as pitaya, is a tropical fruit that grows on a climbing cactus. It’s known for its bright pink or yellow skin, white or red flesh, and tiny black seeds. It’s mildly sweet, refreshing, and packed with nutrients.</p>
+    <section id="about">
+      <h2>About Dragon Fruit</h2>
+      <p>Dragon fruit, or pitaya, is a tropical fruit from the cactus family. Known for its vibrant skin and speckled flesh, it’s celebrated for its mild sweetness, hydration, and health benefits. Native to Central America, it’s now cultivated globally, especially in Southeast Asia.</p>
+    </section>
 
-    <h2>💡 Fun Facts</h2>
-    <ul>
-      <li>Dragon fruit flowers bloom only at night and last just one evening.</li>
-      <li>It’s native to Central America but widely grown in Southeast Asia.</li>
-      <li>The seeds are rich in healthy fats and fiber.</li>
-      <li>It’s part of the cactus family and thrives in dry, sunny climates.</li>
-      <li>There are red, white, and yellow-fleshed varieties.</li>
-    </ul>
+    <section id="nutrition">
+      <h2>Nutritional Benefits</h2>
+      <ul>
+        <li>Rich in antioxidants like vitamin C and betalains</li>
+        <li>High in fiber for digestive health</li>
+        <li>Low in calories and naturally hydrating</li>
+        <li>Contains magnesium, iron, and healthy fats from seeds</li>
+      </ul>
+    </section>
 
-    <h2>🍽 Easy Recipes</h2>
-    <ul>
-      <li><strong>Dragon Fruit Smoothie:</strong> Blend dragon fruit, banana, and coconut water for a vibrant drink.</li>
-      <li><strong>Fruit Salad:</strong> Mix dragon fruit cubes with kiwi, mango, and mint for a tropical twist.</li>
-      <li><strong>Dragon Pops:</strong> Puree dragon fruit with lime juice and freeze in molds for a refreshing treat.</li>
-      <li><strong>Yogurt Parfait:</strong> Layer dragon fruit with Greek yogurt and granola.</li>
-    </ul>
+    <section id="recipes">
+      <h2>Simple Recipes</h2>
+      <ul>
+        <li><strong>Smoothie Bowl:</strong> Blend dragon fruit, banana, mango, and almond milk. Top with granola and chia seeds.</li>
+        <li><strong>Fruit Salad:</strong> Mix chopped dragon fruit, kiwi, watermelon, and mint. Drizzle with lime juice.</li>
+        <li><strong>Popsicles:</strong> Puree dragon fruit with coconut water and freeze in molds.</li>
+        <li><strong>Parfait:</strong> Layer dragon fruit with Greek yogurt and granola.</li>
+      </ul>
+    </section>
+
+    <section id="facts">
+      <h2>Fun Facts</h2>
+      <ul>
+        <li>Dragon fruit flowers bloom only at night and last just one evening.</li>
+        <li>Pollinated by bats and moths in the wild.</li>
+        <li>Comes in white, red, and yellow-fleshed varieties.</li>
+        <li>The cactus plant can live up to 20 years.</li>
+        <li>Seeds resemble kiwi seeds and are edible.</li>
+      </ul>
+    </section>
   </div>
 
   <div class="fact-bubble" onclick="showFact()">💬 Fact of the Day</div>
   <div class="fact-box" id="factBox"></div>
+
+  <footer>
+    &copy; <span id="year"></span> Dragon Fruit Insights. All rights reserved.
+  </footer>
 
   <script>
     const facts = [
@@ -137,6 +205,8 @@
         box.style.display = 'none';
       }, 8000);
     }
+
+    document.getElementById('year').textContent = new Date().getFullYear();
   </script>
 
 </body>
