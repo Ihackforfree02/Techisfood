@@ -8,18 +8,16 @@
     :root {
       --primary: #ff1971;
       --secondary: #ff66b2;
-      --bg-light: #fff0f5;
-      --bg-dark: #1a1a2e;
+      --bg-gradient: linear-gradient(to bottom right, #fdf0f3, #ffe4e9);
       --text-dark: #2d2d2d;
-      --text-light: #f0f0f0;
-      --card-bg: rgba(255,255,255,0.9);
+      --card-bg: #ffffff;
       --shadow: 0 6px 20px rgba(0,0,0,0.1);
       font-family: 'Segoe UI', sans-serif;
     }
 
     body {
       margin: 0;
-      background: linear-gradient(to bottom right, #ffe4e1, #ffdee9);
+      background: var(--bg-gradient);
       color: var(--text-dark);
     }
 
@@ -31,6 +29,7 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
+      flex-wrap: wrap;
     }
 
     header h1 {
@@ -52,7 +51,7 @@
     .container {
       max-width: 1000px;
       margin: 2rem auto;
-      padding: 1rem 2rem;
+      padding: 2rem;
       background: var(--card-bg);
       border-radius: 12px;
       box-shadow: var(--shadow);
@@ -140,7 +139,7 @@
   <div class="container">
     <section id="about">
       <h2>About Dragon Fruit</h2>
-      <p>Dragon fruit, or pitaya, is a tropical fruit from the cactus family. Known for its vibrant skin and speckled flesh, it’s celebrated for its mild sweetness, hydration, and health benefits. Native to Central America, it’s now cultivated globally, especially in Southeast Asia.</p>
+      <p>Dragon fruit, also known as pitaya, is a tropical fruit from the cactus family. Known for its vibrant skin and speckled flesh, it’s celebrated for its mild sweetness, hydration, and health benefits. Native to Central America, it’s now cultivated globally, especially in Southeast Asia.</p>
     </section>
 
     <section id="nutrition">
@@ -171,6 +170,11 @@
         <li>Comes in white, red, and yellow-fleshed varieties.</li>
         <li>The cactus plant can live up to 20 years.</li>
         <li>Seeds resemble kiwi seeds and are edible.</li>
+        <li>Red-fleshed dragon fruit is especially high in antioxidants.</li>
+        <li>Dragon fruit is native to Central America but widely grown in Asia.</li>
+        <li>The plant thrives in dry, sunny climates and sandy soil.</li>
+        <li>It’s often used in smoothies, salads, and desserts.</li>
+        <li>Dragon fruit is known for its hydrating properties and vibrant color.</li>
       </ul>
     </section>
   </div>
