@@ -1,203 +1,223 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Dragon Fruit Co.</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Dragon Fruit Co. — Premium Pitaya</title>
+  <meta name="description" content="Dragon Fruit Co. — sustainably grown premium pitaya, recipes, nutrition, and farm-to-table traceability." />
+
   <style>
-    html, body {
-      margin: 0;
-      padding: 0;
-      padding-top: 80px; /* Prevent nav collision */
-      font-family: 'Segoe UI', sans-serif;
-      background: linear-gradient(to bottom right, #0f0c29, #302b63, #24243e);
-      color: #e0e0e0;
-      overflow-x: hidden;
+    :root{
+      --bg-1: #0f0c29;
+      --bg-2: #302b63;
+      --accent: #ff1971;
+      --accent-2: #ff66b2;
+      --muted: #c9c9d1;
+      --card-bg: rgba(255,255,255,0.04);
+      --glass: rgba(255,255,255,0.03);
+      --radius: 14px;
+      --max-width: 1100px;
+      --shadow: 0 10px 30px rgba(0,0,0,0.5);
+      font-family: 'Inter', system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
     }
 
-    nav {
-      position: fixed;
-      top: 0;
-      width: 100%;
-      background-color: #1a1a2e;
-      display: flex;
-      justify-content: center;
-      padding: 1rem 0;
-      z-index: 1000;
-      box-shadow: 0 0 10px #ff007f;
+    *{box-sizing:border-box}
+    html,body{height:100%;margin:0;color:var(--muted);background:linear-gradient(135deg,var(--bg-1),var(--bg-2));-webkit-font-smoothing:antialiased}
+
+    /* Top navigation */
+    .nav{
+      position:fixed;inset:0 0 auto 0;padding:14px 24px;display:flex;align-items:center;justify-content:space-between;gap:16px;
+      z-index:50;backdrop-filter: blur(6px);background:linear-gradient(180deg, rgba(10,8,20,0.35), rgba(10,8,20,0.15));
+      border-bottom:1px solid rgba(255,25,113,0.06);
+    }
+    .brand{display:flex;align-items:center;gap:12px;color:var(--accent);text-decoration:none;font-weight:700}
+    .brand svg{width:40px;height:40px}
+    .nav-links{display:flex;gap:18px;align-items:center}
+    .nav-links a{color:var(--muted);text-decoration:none;padding:8px 12px;border-radius:8px;font-weight:600}
+    .nav-links a:hover{background:rgba(255,255,255,0.03);color:#fff}
+
+    /* Hero section */
+    .hero{
+      max-width:var(--max-width);margin:110px auto 28px;padding:36px;border-radius:var(--radius);box-shadow:var(--shadow);
+      background: linear-gradient(180deg, rgba(255,25,113,0.06), rgba(20,18,35,0.45));
+      display:grid;grid-template-columns:1fr 420px;gap:28px;align-items:center;
+      padding-right:28px;
     }
 
-    nav a {
-      color: #ff007f;
-      text-decoration: none;
-      margin: 0 2rem;
-      font-size: 1rem;
-      font-weight: 600;
-      transition: color 0.3s;
+    .hero-left h1{margin:0 0 12px;font-size:clamp(28px,4.4vw,44px);color:var(--accent);letter-spacing:-0.02em}
+    .hero-left p{margin:0 0 18px;color:var(--muted);line-height:1.55}
+    .cta{display:flex;gap:12px;align-items:center}
+    .btn{background:linear-gradient(90deg,var(--accent),var(--accent-2));color:#fff;padding:12px 18px;border-radius:10px;text-decoration:none;font-weight:700;box-shadow:0 6px 20px rgba(255,25,113,0.18)}
+    .btn.secondary{background:transparent;border:1px solid rgba(255,255,255,0.06);color:var(--muted);font-weight:600}
+
+    /* Hero illustration card */
+    .card{
+      background:var(--card-bg);border-radius:12px;padding:18px;display:flex;align-items:center;justify-content:center;
+      border:1px solid rgba(255,255,255,0.03);
+    }
+    .fruit{
+      width:320px;height:320px;display:grid;place-items:center;
     }
 
-    nav a:hover {
-      color: #ffffff;
+    /* Content area */
+    .main{
+      max-width:var(--max-width);margin:20px auto;padding:24px;display:grid;grid-template-columns:1fr 340px;gap:24px;
+    }
+    .panel{background:var(--glass);padding:20px;border-radius:12px;border:1px solid rgba(255,255,255,0.03)}
+    h2{color:var(--accent-2);margin-top:0}
+    ul{padding-left:1.2rem}
+    .nutrients{display:grid;grid-template-columns:repeat(2,1fr);gap:12px}
+    .nut-card{background:linear-gradient(180deg, rgba(255,25,113,0.03), rgba(255,25,113,0.01));padding:12px;border-radius:10px}
+
+    /* Footer */
+    footer{max-width:var(--max-width);margin:30px auto 60px;padding:12px;color:#aeadbf;text-align:center;font-size:0.95rem}
+
+    /* Responsive */
+    @media (max-width:960px){
+      .hero{grid-template-columns:1fr;gap:18px}
+      .main{grid-template-columns:1fr}
+      .fruit{width:260px;height:260px}
+      .nav-links{display:none}
     }
 
-    header {
-      text-align: center;
-      padding: 6rem 2rem 2rem;
-      background-color: transparent;
-      z-index: 101;
-      position: relative;
-    }
-
-    header h1 {
-      font-size: 3.5rem;
-      color: #ff007f;
-      text-shadow: 0 0 10px #ff007f;
-      margin-bottom: 0.5rem;
-    }
-
-    header p {
-      font-size: 1.2rem;
-      color: #f8bbd0;
-      text-shadow: 0 0 5px #f8bbd0;
-    }
-
-    .content {
-      max-width: 900px;
-      margin: 2rem auto;
-      padding: 2rem;
-      background-color: rgba(0, 0, 0, 0.6);
-      border-radius: 10px;
-      box-shadow: 0 0 20px rgba(255, 0, 127, 0.3);
-      position: relative;
-      z-index: 10;
-    }
-
-    .content h2 {
-      color: #ff66b2;
-      margin-top: 2rem;
-      text-shadow: 0 0 5px #ff66b2;
-    }
-
-    .content p, .content ul {
-      font-size: 1rem;
-      line-height: 1.6;
-    }
-
-    .content ul {
-      padding-left: 1.2rem;
-    }
-
-    .content a {
-      color: #ff66b2;
-      font-weight: bold;
-      text-decoration: underline;
-    }
-
-    /* 💮 Raining Dragon Fruits */
-    .rain {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      z-index: 9999;
-      pointer-events: none;
-    }
-
-    .rain a {
-      position: fixed;
-      top: -50px;
-      font-size: 1.5rem;
-      color: #ff66b2;
-      text-shadow: 0 0 8px #ff66b2;
-      text-decoration: none;
-      animation: fall linear forwards;
-      pointer-events: auto;
-      opacity: 0.9;
-    }
-
-    @keyframes fall {
-      0% {
-        transform: translateY(0);
-        opacity: 1;
-      }
-      80% {
-        opacity: 1;
-      }
-      100% {
-        transform: translateY(100vh);
-        opacity: 0;
-      }
-    }
+    /* Subtle animation for illustration */
+    .fruit svg{filter:drop-shadow(0 8px 30px rgba(255,25,113,0.18))}
+    .badge{display:inline-flex;align-items:center;gap:8px;background:rgba(255,255,255,0.03);padding:6px 10px;border-radius:999px;color:var(--muted);font-weight:600}
   </style>
 </head>
 <body>
-  <div class="rain"></div>
+  <header class="nav" role="banner" aria-label="Main navigation">
+    <a class="brand" href="#" aria-label="Dragon Fruit Co homepage">
+      <svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <defs><linearGradient id="g" x1="0" x2="1"><stop offset="0" stop-color="#ff1971"/><stop offset="1" stop-color="#ff66b2"/></linearGradient></defs>
+        <rect width="64" height="64" rx="12" fill="url(#g)"/>
+        <g transform="translate(8,8)" fill="#fff">
+          <path d="M24 0c-4 3-7 4-12 4s-7 3-7 7 7 12 19 12 19-9 19-13-6-10-19-10z" opacity=".95"/>
+          <circle cx="14" cy="18" r="1.6" fill="#ff1971"/>
+        </g>
+      </svg>
+      Dragon Fruit Co.
+    </a>
 
-  <nav>
-    <a href="#">Home</a>
-    <a href="Recipe.html">Recipes</a>
-    <a href="cycle.html">The Cycle</a>
-  </nav>
-
-  <header>
-    <h1>Dragon Fruit Co.</h1>
-    <p>Premium Produce with a Neon Twist</p>
+    <nav aria-label="Primary">
+      <div class="nav-links" role="navigation" aria-hidden="false">
+        <a href="#" aria-current="page">Home</a>
+        <a href="recipes.html">Recipes</a>
+        <a href="sustainability.html">Sustainability</a>
+        <a href="about.html">About</a>
+      </div>
+    </nav>
   </header>
 
-  <div class="content">
-    <h2>About Dragon Fruit</h2>
-    <p>Dragon fruit, or pitaya, is a tropical cactus fruit known for its vibrant pink skin and speckled flesh. It offers a unique blend of flavor and nutrition, making it a favorite among health-conscious consumers and culinary creatives alike.</p>
+  <main>
+    <section class="hero" aria-labelledby="hero-title">
+      <div class="hero-left">
+        <div class="badge" aria-hidden="true">Farm to Table Quality</div>
+        <h1 id="hero-title">Premium Dragon Fruit, Grown Responsibly</h1>
+        <p>Bright, nutrient-dense pitaya harvested from sustainable farms. Explore recipes, learn about our cultivation practices, and order select seasonal boxes delivered fresh.</p>
 
-    <h2>Health Benefits</h2>
-    <ul>
-      <li>Rich in antioxidants and vitamin C</li>
-      <li>Supports digestive health with natural fiber</li>
-      <li>Hydrating and low in calories</li>
-      <li>Contains magnesium and essential nutrients</li>
-    </ul>
+        <div class="cta" role="group" aria-label="Primary calls to action">
+          <a class="btn" href="shop.html">Shop Seasonal Boxes</a>
+          <a class="btn secondary" href="recipes.html">View Recipes</a>
+        </div>
+      </div>
 
-    <h2>Our Mission</h2>
-    <p>At Dragon Fruit Co., we deliver premium tropical produce with a bold aesthetic. Our commitment to quality, sustainability, and innovation sets us apart in the global fruit market.</p>
+      <aside class="card" aria-hidden="false">
+        <div class="fruit" role="img" aria-label="Stylised dragon fruit illustration">
+          <!-- Inline SVG stylised dragon fruit for a professional, scalable illustration -->
+          <svg viewBox="0 0 300 300" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <defs>
+              <linearGradient id="fg" x1="0" x2="1"><stop offset="0" stop-color="#ff1971"/><stop offset="1" stop-color="#ff66b2"/></linearGradient>
+            </defs>
+            <g transform="translate(150,150)">
+              <ellipse rx="95" ry="120" fill="url(#fg)"/>
+              <g fill="#fff" opacity="0.95">
+                <circle cx="-10" cy="-10" r="6"/>
+                <circle cx="18" cy="8" r="5"/>
+                <circle cx="-24" cy="20" r="4.5"/>
+                <circle cx="36" cy="-18" r="4"/>
+                <circle cx="6" cy="30" r="3.5"/>
+              </g>
+              <g transform="translate(-90,-120)" fill="#1a1a2e" opacity="0.9">
+                <path d="M90 30c24-12 36-6 36-6s-2 18-22 32c0 0-18-6-28-26z"/>
+                <path d="M40 10c-18 18-26 38-26 38s22 0 38-20c0 0-6-12-12-18z"/>
+              </g>
+            </g>
+          </svg>
+        </div>
+      </aside>
+    </section>
 
-    <h2>Explore Recipes</h2>
-    <p>From smoothies to gourmet desserts, dragon fruit adds color and nutrition to any dish. Visit our <a href="cool-beaans.html">recipe page</a> to explore creative ideas and culinary inspiration.</p>
-  </div>
+    <section class="main" aria-label="Main content">
+      <article class="panel" aria-labelledby="about-title">
+        <h2 id="about-title">About Dragon Fruit</h2>
+        <p>Dragon fruit, also known as pitaya, is a cactus fruit prized for its striking color, subtle sweetness, and versatility in both sweet and savoury dishes. We partner with growers who follow regenerative practices to ensure flavour and soil health.</p>
+
+        <h2>Nutritional Highlights</h2>
+        <div class="nutrients" role="list">
+          <div class="nut-card" role="listitem">
+            <strong>Antioxidants</strong>
+            <div>Supports cellular health and radiant skin.</div>
+          </div>
+          <div class="nut-card" role="listitem">
+            <strong>Vitamin C</strong>
+            <div>Immune-supporting and refreshing.</div>
+          </div>
+          <div class="nut-card" role="listitem">
+            <strong>Dietary Fiber</strong>
+            <div>Promotes digestion and satiety.</div>
+          </div>
+          <div class="nut-card" role="listitem">
+            <strong>Low Calories</strong>
+            <div>Hydrating and guilt-free snacking.</div>
+          </div>
+        </div>
+
+        <h2>How to Enjoy</h2>
+        <ul>
+          <li>Blend into vibrant smoothies and bowls</li>
+          <li>Use as a colourful garnish for salads and seafood</li>
+          <li>Bake into desserts or make a refreshing sorbet</li>
+        </ul>
+      </article>
+
+      <aside class="panel" aria-labelledby="shop-title">
+        <h2 id="shop-title">Shop & Traceability</h2>
+        <p>Order single fruits, curated seasonal boxes, or subscribe for monthly deliveries. Each box includes a QR trace card linking to harvest details, farm profile, and handling tips.</p>
+
+        <h2>Quick Links</h2>
+        <ul>
+          <li><a href="recipes.html">Top Recipes</a></li>
+          <li><a href="sustainability.html">Sourcing & Farming</a></li>
+          <li><a href="contact.html">Wholesale & Contact</a></li>
+        </ul>
+      </aside>
+    </section>
+  </main>
+
+  <footer>
+    © <span id="year"></span> Dragon Fruit Co. All rights reserved.
+  </footer>
 
   <script>
-    const rainContainer = document.querySelector('.rain');
+    // Small script: current year and keyboard-accessible focus state
+    document.getElementById('year').textContent = new Date().getFullYear();
 
-    function createDrop() {
-      const drop = document.createElement('a');
-      drop.href = 'https://ihackforfree02.github.io/Ihackforfree.github.io/';
-      drop.target = '_blank';
-      drop.textContent = '💮';
-      drop.style.position = 'fixed';
-      drop.style.left = Math.random() * 100 + 'vw';
-      drop.style.top = '-50px';
-      drop.style.fontSize = (Math.random() * 1 + 1) + 'rem';
-      drop.style.color = '#ff66b2';
-      drop.style.textShadow = '0 0 8px #ff66b2';
-      drop.style.animation = 'fall linear forwards';
-      drop.style.animationDuration = (Math.random() * 4 + 3) + 's';
-      drop.style.pointerEvents = 'auto';
-      drop.style.opacity = '0.9';
-
-      rainContainer.appendChild(drop);
-
-      setTimeout(() => {
-        drop.remove();
-      }, 7000);
-    }
-
-    // Initial batch
-    for (let i = 0; i < 40; i++) {
-      createDrop();
-    }
-
-    // Infinite rain
-    setInterval(() => {
-      createDrop();
-    }, 500);
+    // Add simple keyboard focus outline for accessibility
+    (function(){
+      let mouseDown = false;
+      document.addEventListener('mousedown', ()=> mouseDown = true);
+      document.addEventListener('keydown', (e)=>{
+        if(e.key === 'Tab') document.documentElement.classList.add('show-focus');
+      });
+      document.addEventListener('click', ()=> {
+        setTimeout(()=> document.documentElement.classList.remove('show-focus'), 100);
+      });
+      // CSS for focus states injected
+      const style = document.createElement('style');
+      style.textContent = `.show-focus a:focus, .show-focus button:focus { outline: 3px solid rgba(255,25,113,0.25); outline-offset: 3px; border-radius:8px }`;
+      document.head.appendChild(style);
+    })();
   </script>
 </body>
 </html>
