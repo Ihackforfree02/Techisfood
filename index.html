@@ -1,396 +1,551 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>DragonFruit Delight</title>
-<!-- Google Fonts -->
-<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Pacifico&display=swap" rel="stylesheet">
-<style>
-/* ----------------- GENERAL STYLES ----------------- */
-body {
-    margin: 0;
-    font-family: 'Montserrat', sans-serif;
-    background: linear-gradient(120deg, #ffe6f0, #ffffff);
-    color: #333;
-    scroll-behavior: smooth;
-}
-h1, h2, h3 {
-    font-family: 'Pacifico', cursive;
-}
-a {
-    text-decoration: none;
-    color: inherit;
-}
-img {
-    max-width: 100%;
-    border-radius: 10px;
-}
-/* ----------------- NAVIGATION ----------------- */
-nav {
-    position: fixed;
-    top: 0;
-    width: 100%;
-    background: rgba(255, 255, 255, 0.95);
-    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-    z-index: 1000;
-}
-nav ul {
-    display: flex;
-    justify-content: center;
-    list-style: none;
-    margin: 0;
-    padding: 0.5rem 0;
-}
-nav li {
-    margin: 0 15px;
-    font-weight: 600;
-}
-nav li:hover {
-    color: #ff3399;
-}
-nav a {
-    padding: 5px 10px;
-    transition: all 0.3s;
-}
-nav a:hover {
-    background: #ff3399;
-    color: white;
-    border-radius: 5px;
-}
-/* ----------------- HERO SECTION ----------------- */
-.hero {
-    height: 100vh;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    background: url('https://source.unsplash.com/1600x900/?dragon-fruit') center/cover no-repeat;
-    color: white;
-    text-shadow: 2px 2px 8px rgba(0,0,0,0.6);
-    text-align: center;
-}
-.hero h1 {
-    font-size: 4rem;
-    margin: 0;
-}
-.hero p {
-    font-size: 1.5rem;
-    margin: 20px 0 0 0;
-}
-/* ----------------- SECTIONS ----------------- */
-section {
-    padding: 80px 20px;
-    max-width: 1200px;
-    margin: auto;
-}
-.section-title {
-    text-align: center;
-    margin-bottom: 50px;
-    font-size: 2.5rem;
-    color: #ff3399;
-}
-/* ----------------- INFO CARDS ----------------- */
-.info-cards {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 30px;
-}
-.card {
-    background: white;
-    border-radius: 15px;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-    padding: 20px;
-    transition: transform 0.3s;
-}
-.card:hover {
-    transform: translateY(-10px);
-}
-.card img {
-    border-radius: 10px;
-    margin-bottom: 15px;
-}
-.card h3 {
-    margin-top: 0;
-    color: #ff3399;
-}
-/* ----------------- TABS ----------------- */
-.tabs {
-    display: flex;
-    justify-content: center;
-    margin-bottom: 20px;
-    flex-wrap: wrap;
-}
-.tab {
-    background: #fff;
-    border: 2px solid #ff3399;
-    color: #ff3399;
-    padding: 10px 20px;
-    margin: 5px;
-    border-radius: 30px;
-    cursor: pointer;
-    transition: all 0.3s;
-}
-.tab.active, .tab:hover {
-    background: #ff3399;
-    color: white;
-}
-.tab-content {
-    display: none;
-    text-align: center;
-    padding: 20px;
-    background: #ffe6f0;
-    border-radius: 15px;
-}
-.tab-content.active {
-    display: block;
-}
-/* ----------------- TIMELINE ----------------- */
-.timeline {
-    position: relative;
-    margin: 50px 0;
-    padding-left: 30px;
-}
-.timeline::before {
-    content: '';
-    position: absolute;
-    left: 15px;
-    top: 0;
-    bottom: 0;
-    width: 4px;
-    background: #ff3399;
-}
-.timeline-item {
-    position: relative;
-    margin-bottom: 30px;
-    padding-left: 30px;
-}
-.timeline-item::before {
-    content: '';
-    position: absolute;
-    left: -6px;
-    background: #ff3399;
-    border-radius: 50%;
-    width: 20px;
-    height: 20px;
-    top: 0;
-}
-.timeline-item h4 {
-    margin: 0 0 5px 0;
-}
-.timeline-item p {
-    margin: 0;
-}
-/* ----------------- GALLERY ----------------- */
-.gallery {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    gap: 20px;
-}
-.gallery img {
-    cursor: pointer;
-    transition: transform 0.3s;
-}
-.gallery img:hover {
-    transform: scale(1.05);
-}
-/* ----------------- FOOTER ----------------- */
-footer {
-    background: #ff3399;
-    color: white;
-    text-align: center;
-    padding: 40px 20px;
-}
-footer a {
-    color: #fff;
-    font-weight: bold;
-}
-footer a:hover {
-    text-decoration: underline;
-}
-/* ----------------- BACK TO TOP ----------------- */
-#back-to-top {
-    position: fixed;
-    bottom: 20px;
-    right: 20px;
-    background: #ff3399;
-    color: white;
-    border: none;
-    padding: 15px;
-    border-radius: 50%;
-    cursor: pointer;
-    display: none;
-    font-size: 18px;
-    z-index: 100;
-}
-</style>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>DragonFruit Delight — All About Dragon Fruit</title>
+
+  <!-- Tailwind (CDN) -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Feather icons -->
+  <script src="https://unpkg.com/feather-icons"></script>
+
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            dragon: {
+              100: '#ffe0f0',
+              200: '#ffb3d9',
+              300: '#ff66b2',
+              400: '#ff1971',
+              500: '#e6005c',
+              600: '#cc004d'
+            }
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap');
+    :root{--dragon-500:#e6005c;--dragon-400:#ff1971;}
+    body { font-family: 'Poppins', sans-serif; background: #fef2f7; color:#1f2937; scroll-behavior:smooth; }
+    .gradient-text { background: linear-gradient(45deg,#ff1971,#ff66b2); -webkit-background-clip:text; color:transparent; }
+    .hero-image { animation: float 6s ease-in-out infinite; }
+    @keyframes float { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-18px)} }
+    .fact-card { transition: transform .28s ease, box-shadow .28s ease; }
+    .fact-card:hover{ transform:translateY(-8px) scale(1.02); box-shadow:0 18px 40px rgba(0,0,0,0.12); }
+    .fab { position:fixed; right:1.5rem; bottom:1.5rem; z-index:40; }
+    nav a { text-decoration: none; }
+    .media-embed { width:100%; height:320px; border:0; border-radius:0.5rem; overflow:hidden; }
+    footer a { text-decoration:none; }
+    .step-active { border: 2px solid #ff1971; transform: translateY(-6px); transition: all .2s ease; }
+    .timeline-step { cursor: pointer; transition: transform .18s ease, box-shadow .18s ease; }
+    .recipe-card { border-left: 6px solid #ff1971; padding-left: 1rem; }
+    /* lightbox */
+    #lightbox { position:fixed; left:0;top:0;width:100%;height:100%;background:rgba(0,0,0,0.85);display:none;align-items:center;justify-content:center;z-index:60; }
+    #lightbox img { max-width:95vw; max-height:95vh; border-radius:8px; box-shadow:0 20px 60px rgba(0,0,0,0.6); }
+    /* small responsive tweaks */
+    @media (min-width:768px){ .hero-image{ max-width:520px; } }
+  </style>
 </head>
-<body>
-<!-- NAVIGATION -->
-<nav>
-    <ul>
-        <li><a href="#about">About</a></li>
-        <li><a href="#nutrition">Nutrition</a></li>
-        <li><a href="#timeline">Timeline</a></li>
-        <li><a href="#recipes">Recipes</a></li>
-        <li><a href="#gallery">Gallery</a></li>
-        <li><a href="#contact">Contact</a></li>
-    </ul>
-</nav>
+<body class="min-h-screen">
 
-<!-- HERO SECTION -->
-<section class="hero">
-    <h1>DragonFruit Delight</h1>
-    <p>The vibrant tropical fruit that’s as healthy as it is beautiful</p>
-</section>
+  <!-- Navigation -->
+  <nav class="bg-dragon-500 text-white shadow">
+    <div class="container mx-auto px-6 py-3 flex items-center justify-between">
+      <div class="flex items-center space-x-3">
+        <button id="logo-btn" class="flex items-center space-x-2 focus:outline-none" aria-label="DragonFruit Delight home">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" aria-hidden="true" class="rounded-full bg-white/10 p-1">
+            <path d="M12 2c1.9 0 3.6.8 4.8 2.1C17.4 5.5 17 7.6 16 9c-1.9 2.9-6 5-6 5s-4.1-2.1-6-5C1 7.6.6 5.5.2 4.1 1.4 2.8 3.1 2 5 2c1.2 0 2.3.4 3.1 1l.9.7.9-.7C9.7 2.4 10.8 2 12 2z" fill="#fff"></path>
+          </svg>
+          <span class="font-bold text-lg">DragonFruit Delight</span>
+        </button>
+      </div>
 
-<!-- ABOUT SECTION -->
-<section id="about">
-    <h2 class="section-title">About Dragon Fruit</h2>
-    <p>Dragon fruit, also known as pitaya, is a tropical fruit native to Central America but widely cultivated in Southeast Asia. Its striking appearance, vibrant pink skin, and speckled flesh make it instantly recognizable. Known for its mildly sweet taste and crunchy seeds, dragon fruit is also packed with nutrients and antioxidants.</p>
-    <div class="info-cards">
-        <div class="card">
-            <img src="https://source.unsplash.com/400x300/?dragon-fruit" alt="Dragon Fruit Closeup">
-            <h3>Origin</h3>
-            <p>Originally from Mexico and Central America, dragon fruit is now grown in Thailand, Vietnam, Israel, and more.</p>
-        </div>
-        <div class="card">
-            <img src="https://source.unsplash.com/400x300/?pitaya" alt="Dragon Fruit on Tree">
-            <h3>Cultivation</h3>
-            <p>Grows on a climbing cactus in tropical climates, often yielding multiple harvests per year.</p>
-        </div>
-        <div class="card">
-            <img src="https://source.unsplash.com/400x300/?dragon-fruit-slice" alt="Dragon Fruit Sliced">
-            <h3>Varieties</h3>
-            <p>Common varieties include white-fleshed, red-fleshed, and yellow-skinned dragon fruit, each with subtle taste differences.</p>
-        </div>
+      <div class="hidden md:flex space-x-6">
+        <a href="#intro" class="hover:text-dragon-200">Intro</a>
+        <a href="#nutrition" class="hover:text-dragon-200">Nutrition</a>
+        <a href="#lifecycle" class="hover:text-dragon-200">Life Cycle</a>
+        <a href="#journey" class="hover:text-dragon-200">Journey</a>
+        <a href="#recipes" class="hover:text-dragon-200">Recipes</a>
+        <a href="#gallery" class="hover:text-dragon-200">Gallery</a>
+      </div>
     </div>
-</section>
+  </nav>
 
-<!-- NUTRITION SECTION -->
-<section id="nutrition">
-    <h2 class="section-title">Nutrition & Health</h2>
-    <div class="tabs">
-        <div class="tab active" data-tab="1">Vitamins</div>
-        <div class="tab" data-tab="2">Minerals</div>
-        <div class="tab" data-tab="3">Health Benefits</div>
+  <!-- Hero -->
+  <header id="home" class="py-16">
+    <div class="container mx-auto px-6 flex flex-col md:flex-row items-center gap-10">
+      <div class="md:w-1/2">
+        <h1 class="text-4xl md:text-5xl font-bold mb-4 gradient-text">Discover the Magic of Dragon Fruit</h1>
+        <p class="text-gray-700 mb-6">
+          Dragon fruit (pitaya) is a striking tropical fruit from a climbing cactus, prized for its vivid skin and speckled flesh.
+          It is now cultivated worldwide — especially in Southeast Asia, Australia and parts of the Americas — and appreciated for its flavor, hydration, and antioxidant content.
+        </p>
+        <div class="flex gap-4">
+          <a href="#nutrition" class="bg-dragon-500 text-white px-6 py-3 rounded-full shadow hover:bg-dragon-600">Nutrition</a>
+          <a href="#recipes" class="border-2 border-dragon-500 text-dragon-500 px-6 py-3 rounded-full hover:bg-dragon-100">Recipes</a>
+        </div>
+      </div>
+
+      <div class="md:w-1/2 flex justify-center">
+        <!-- hero image: dragon fruit close-up -->
+        <img src="https://images.unsplash.com/photo-1544025162-d76694265947?auto=format&fit=crop&w=900&q=80"
+             alt="Close-up of sliced dragon fruit" class="rounded-2xl shadow-2xl hero-image max-w-md" />
+      </div>
     </div>
-    <div id="tab-1" class="tab-content active">
-        <p>Dragon fruit is rich in vitamin C, boosting the immune system, and vitamin B, which supports energy metabolism.</p>
+  </header>
+
+  <!-- Intro / What it is -->
+  <section id="intro" class="py-12 bg-white">
+    <div class="container mx-auto px-6 max-w-4xl">
+      <h2 class="text-3xl font-bold text-dragon-600 mb-4">What Dragon Fruit Is</h2>
+      <p class="text-gray-700 mb-4">
+        Dragon fruit (pitaya or pitahaya) comes from several cactus species in the genera Hylocereus and Selenicereus.
+        Key characteristics: leathery skin with scale-like “flaps”, flesh that can be white, pink or deep red, and many small edible black seeds.
+        The plants produce large night-blooming flowers; in traditional settings these are pollinated by nocturnal pollinators like bats and moths, while many farms use managed pollination.
+      </p>
+
+      <div class="grid md:grid-cols-2 gap-6 items-center mt-6">
+        <div>
+          <img src="https://images.unsplash.com/photo-1547785864-1f7e52b5c4f3?auto=format&fit=crop&w=800&q=80"
+               alt="Dragon fruit plant growing on trellis" class="rounded-lg shadow-lg" />
+        </div>
+        <div>
+          <p class="text-gray-700">
+            Originally native to Central and South America, dragon fruit is now widely grown across Southeast Asia, Israel, Australia, and parts of the U.S.
+            Farmers grow vines on trellises, use irrigation and pruning to maximize flowering, and harvest by hand when fruits reach color and firmness.
+          </p>
+        </div>
+      </div>
     </div>
-    <div id="tab-2" class="tab-content">
-        <p>Contains calcium, iron, magnesium, and phosphorus, which promote bone health and overall body function.</p>
+  </section>
+
+  <!-- Nutrition -->
+  <section id="nutrition" class="py-12 bg-dragon-100">
+    <div class="container mx-auto px-6 max-w-4xl">
+      <h2 class="text-3xl font-bold text-dragon-600 mb-4">Nutritional Value</h2>
+      <p class="text-gray-700 mb-4">
+        Dragon fruit is low in calories and hydrating. It provides fiber, vitamin C, small amounts of protein and minerals like magnesium, and phytonutrients such as betalains and flavonoids (antioxidants).
+        A typical 100 g serving contains approximately 57 kcal and about 3 g of fiber — good for digestion and hydration.
+      </p>
+
+      <div class="grid md:grid-cols-3 gap-6 mt-6">
+        <div class="bg-white p-6 rounded-xl fact-card">
+          <h3 class="font-semibold text-dragon-500 mb-2">Calories</h3>
+          <p class="text-gray-600">~57 kcal per 100 g</p>
+        </div>
+        <div class="bg-white p-6 rounded-xl fact-card">
+          <h3 class="font-semibold text-dragon-500 mb-2">Fiber</h3>
+          <p class="text-gray-600">~3 g per 100 g — supports digestion</p>
+        </div>
+        <div class="bg-white p-6 rounded-xl fact-card">
+          <h3 class="font-semibold text-dragon-500 mb-2">Vitamin C & Antioxidants</h3>
+          <p class="text-gray-600">Source of vitamin C; red-fleshed varieties are rich in betalain antioxidants</p>
+        </div>
+      </div>
     </div>
-    <div id="tab-3" class="tab-content">
-        <p>Helps improve digestion, supports a healthy gut, and is full of antioxidants that protect cells from damage.</p>
+  </section>
+
+  <!-- Life Cycle -->
+  <section id="lifecycle" class="py-12 bg-white">
+    <div class="container mx-auto px-6 max-w-4xl">
+      <h2 class="text-3xl font-bold text-dragon-600 mb-4">Life Cycle</h2>
+      <ol class="list-decimal list-inside text-gray-700 space-y-3">
+        <li><strong>Establishment:</strong> Grown from seed or cuttings on supports such as trellises.</li>
+        <li><strong>Vegetative growth:</strong> Stems expand, producing branches and are trained for sunlight exposure.</li>
+        <li><strong>Flowering:</strong> Large night-blooming flowers appear; pollination commonly by bats and moths (or managed pollinators).</li>
+        <li><strong>Fruit set & maturation:</strong> Fruit typically matures in ~30–50 days after pollination.</li>
+        <li><strong>Harvest:</strong> Fruits are hand-picked when colored and firm; multiple harvests possible across a season.</li>
+      </ol>
+
+      <div class="mt-6 grid md:grid-cols-3 gap-4">
+        <div class="bg-dragon-50 p-4 rounded shadow text-center timeline-step" data-step="seedling">
+          <img src="https://images.unsplash.com/photo-1501004318641-b39e6451bec6?auto=format&fit=crop&w=600&q=60" alt="seedling" class="mx-auto mb-3 rounded" />
+          <div class="font-semibold">Seed/Cutting</div>
+        </div>
+        <div class="bg-dragon-50 p-4 rounded shadow text-center timeline-step" data-step="flower">
+          <img src="https://images.unsplash.com/photo-1501004318641-b39e6451bec6?auto=format&fit=crop&w=600&q=60" alt="flower" class="mx-auto mb-3 rounded" />
+          <div class="font-semibold">Flowering</div>
+        </div>
+        <div class="bg-dragon-50 p-4 rounded shadow text-center timeline-step" data-step="harvest">
+          <img src="https://images.unsplash.com/photo-1516126491303-6f54240b3b55?auto=format&fit=crop&w=600&q=60" alt="harvest" class="mx-auto mb-3 rounded" />
+          <div class="font-semibold">Harvest</div>
+        </div>
+      </div>
+      <p id="timeline-info" class="mt-4 text-gray-700"></p>
     </div>
-</section>
+  </section>
 
-<!-- TIMELINE SECTION -->
-<section id="timeline">
-    <h2 class="section-title">From Farm to Table</h2>
-    <div class="timeline">
-        <div class="timeline-item">
-            <h4>Planting</h4>
-            <p>Dragon fruit is grown from cuttings and planted in fertile tropical soil.</p>
+  <!-- Journey / Infographic-like layout (interactive steps) -->
+  <section id="journey" class="py-12 bg-dragon-100">
+    <div class="container mx-auto px-6 max-w-5xl">
+      <h2 class="text-3xl font-bold text-dragon-600 mb-6 text-center">The Food’s Journey (Interactive)</h2>
+
+      <div class="grid md:grid-cols-3 gap-6 text-gray-700 mb-6">
+        <div class="bg-white p-6 rounded-xl shadow timeline-step" data-journey="growth">
+          <h3 class="font-semibold text-dragon-500 mb-2">Growth</h3>
+          <p>Plants are trained on trellises with irrigation and pest management to produce healthy fruit.</p>
         </div>
-        <div class="timeline-item">
-            <h4>Flowering</h4>
-            <p>Night-blooming flowers attract pollinators and prepare for fruit production.</p>
+
+        <div class="bg-white p-6 rounded-xl shadow timeline-step" data-journey="harvest">
+          <h3 class="font-semibold text-dragon-500 mb-2">Harvest & Packing</h3>
+          <p>Hand-picked, cleaned, sorted, and packed in breathable crates to reduce bruising.</p>
         </div>
-        <div class="timeline-item">
-            <h4>Harvest</h4>
-            <p>After 30-50 days, fruits ripen and are hand-picked to ensure quality.</p>
+
+        <div class="bg-white p-6 rounded-xl shadow timeline-step" data-journey="transport">
+          <h3 class="font-semibold text-dragon-500 mb-2">Transport & Retail</h3>
+          <p>Shipped via refrigerated trucks or air freight; sold fresh or processed for export.</p>
         </div>
-        <div class="timeline-item">
-            <h4>Distribution</h4>
-            <p>Fruits are packaged and sent to markets locally and internationally.</p>
-        </div>
-        <div class="timeline-item">
-            <h4>Consumption</h4>
-            <p>Enjoyed fresh, in smoothies, desserts, or exotic salads!</p>
-        </div>
+      </div>
+
+      <div id="journey-detail" class="bg-white p-6 rounded-xl shadow text-gray-700">
+        <h4 class="font-semibold text-dragon-500 mb-2">Select a step above to learn more.</h4>
+        <p id="journey-text">Click Growth, Harvest & Packing, or Transport & Retail to reveal details and images.</p>
+        <div id="journey-media" class="mt-4 grid md:grid-cols-3 gap-4"></div>
+      </div>
     </div>
-</section>
+  </section>
 
-<!-- RECIPES SECTION -->
-<section id="recipes">
-    <h2 class="section-title">Tasty Recipes</h2>
-    <div class="info-cards">
-        <div class="card">
-            <img src="https://source.unsplash.com/400x300/?dragon-fruit-smoothie" alt="Dragon Fruit Smoothie">
-            <h3>Dragon Fruit Smoothie</h3>
-            <p>Blend fresh dragon fruit, banana, coconut milk, and a hint of honey for a refreshing tropical drink.</p>
-        </div>
-        <div class="card">
-            <img src="https://source.unsplash.com/400x300/?dragon-fruit-salad" alt="Dragon Fruit Salad">
-            <h3>Exotic Fruit Salad</h3>
-            <p>Combine dragon fruit, kiwi, pineapple, and berries, topped with a squeeze of lime juice.</p>
-        </div>
-        <div class="card">
-            <img src="https://source.unsplash.com/400x300/?dragon-fruit-popsicle" alt="Dragon Fruit Popsicle">
-            <h3>Frozen Pops</h3>
-            <p>Freeze pureed dragon fruit with a touch of coconut water for a vibrant and healthy treat.</p>
-        </div>
+  <!-- Recipes (formal format with matching images) -->
+  <section id="recipes" class="py-12 bg-white">
+    <div class="container mx-auto px-6 max-w-5xl">
+      <h2 class="text-3xl font-bold text-dragon-600 mb-6">Three Formal Recipes</h2>
+
+      <div class="grid md:grid-cols-2 gap-6">
+        <!-- Recipe A -->
+        <article class="mb-8 p-6 bg-dragon-50 rounded-xl shadow">
+          <h3 class="text-xl font-semibold text-dragon-500 mb-2">Dragon Fruit Smoothie Bowl</h3>
+          <p><strong>Servings:</strong> 2</p>
+          <p><strong>Ingredients:</strong></p>
+          <ul class="list-disc list-inside text-gray-700 mb-3">
+            <li>1 cup frozen dragon fruit (cubed)</li>
+            <li>1 ripe banana</li>
+            <li>½ cup coconut milk (or almond milk)</li>
+            <li>Toppings: granola, chia seeds, sliced kiwi, coconut flakes</li>
+          </ul>
+          <p><strong>Method:</strong></p>
+          <ol class="list-decimal list-inside text-gray-700 mb-3">
+            <li>Add dragon fruit, banana, and coconut milk to a blender and blend until smooth.</li>
+            <li>Pour into bowls and arrange toppings as desired.</li>
+            <li>Serve immediately while cold.</li>
+          </ol>
+          <p><strong>Cooking Time:</strong> 5 minutes | <strong>Temperature:</strong> Cold</p>
+        </article>
+
+        <!-- Recipe B -->
+        <article class="mb-8 p-6 bg-dragon-50 rounded-xl shadow">
+          <h3 class="text-xl font-semibold text-dragon-500 mb-2">Tropical Dragon Fruit Salad</h3>
+          <p><strong>Servings:</strong> 4</p>
+          <p><strong>Ingredients:</strong></p>
+          <ul class="list-disc list-inside text-gray-700 mb-3">
+            <li>1 dragon fruit, peeled and cubed</li>
+            <li>1 mango, diced</li>
+            <li>½ cup fresh mint leaves</li>
+            <li>Juice of 1 lime</li>
+            <li>Optional: a drizzle of honey</li>
+          </ul>
+          <p><strong>Method:</strong></p>
+          <ol class="list-decimal list-inside text-gray-700 mb-3">
+            <li>Combine dragon fruit, mango, and mint in a bowl.</li>
+            <li>Drizzle with lime juice and honey if using; toss gently to combine.</li>
+            <li>Serve fresh at room temperature.</li>
+          </ol>
+          <p><strong>Cooking Time:</strong> 10 minutes | <strong>Temperature:</strong> Room temperature</p>
+        </article>
+
+        <!-- Recipe C -->
+        <article class="p-6 bg-dragon-50 rounded-xl shadow">
+          <h3 class="text-xl font-semibold text-dragon-500 mb-2">Dragon Fruit Popsicles</h3>
+          <p><strong>Servings:</strong> 6</p>
+          <p><strong>Ingredients:</strong></p>
+          <ul class="list-disc list-inside text-gray-700 mb-3">
+            <li>2 cups dragon fruit puree</li>
+            <li>1 tbsp honey or maple syrup</li>
+            <li>½ cup coconut water</li>
+          </ul>
+          <p><strong>Method:</strong></p>
+          <ol class="list-decimal list-inside text-gray-700 mb-3">
+            <li>Blend dragon fruit to a smooth puree, then mix with honey and coconut water.</li>
+            <li>Pour mixture into popsicle molds and insert sticks.</li>
+            <li>Freeze for 4–6 hours until solid.</li>
+          </ol>
+          <p><strong>Cooking Time:</strong> 10 minutes prep + 4–6 hours freeze | <strong>Temperature:</strong> Frozen</p>
+        </article>
+
+      </div>
+
+      <!-- Compact recipe cards (duplicates as in original) -->
+      <div class="grid md:grid-cols-2 gap-6 mt-6">
+        <article class="p-6 bg-dragon-50 rounded-xl shadow recipe-card">
+          <div class="flex gap-4">
+            <img src="https://images.unsplash.com/photo-1604908177522-4f3b3c2d9b2f?auto=format&fit=crop&w=500&q=80" alt="Smoothie bowl" class="w-36 h-36 object-cover rounded-lg shadow" />
+            <div>
+              <h3 class="text-xl font-semibold text-dragon-500">Dragon Fruit Smoothie Bowl</h3>
+              <p class="mt-2"><strong>Servings:</strong> 2</p>
+              <p><strong>Ingredients:</strong></p>
+              <ul class="list-disc list-inside text-gray-700">
+                <li>1 cup frozen dragon fruit (cubed)</li>
+                <li>1 ripe banana</li>
+                <li>½ cup coconut milk</li>
+                <li>Toppings: granola, chia seeds, kiwi</li>
+              </ul>
+            </div>
+          </div>
+          <div class="mt-4">
+            <p><strong>Method:</strong></p>
+            <ol class="list-decimal list-inside text-gray-700">
+              <li>Blend dragon fruit, banana, and coconut milk until smooth.</li>
+              <li>Pour into bowls and add toppings.</li>
+              <li>Serve immediately while cold.</li>
+            </ol>
+            <p class="mt-2"><strong>Time:</strong> 5 min | <strong>Temperature:</strong> Cold</p>
+          </div>
+        </article>
+
+        <article class="p-6 bg-dragon-50 rounded-xl shadow recipe-card">
+          <div class="flex gap-4">
+            <img src="https://images.unsplash.com/photo-1528825871115-3581a5387919?auto=format&fit=crop&w=500&q=80" alt="Dragon fruit salad" class="w-36 h-36 object-cover rounded-lg shadow" />
+            <div>
+              <h3 class="text-xl font-semibold text-dragon-500">Tropical Dragon Fruit Salad</h3>
+              <p class="mt-2"><strong>Servings:</strong> 4</p>
+              <p><strong>Ingredients:</strong></p>
+              <ul class="list-disc list-inside text-gray-700">
+                <li>1 dragon fruit, peeled and cubed</li>
+                <li>1 mango, diced</li>
+                <li>½ cup fresh mint leaves</li>
+                <li>Juice of 1 lime</li>
+              </ul>
+            </div>
+          </div>
+          <div class="mt-4">
+            <p><strong>Method:</strong></p>
+            <ol class="list-decimal list-inside text-gray-700">
+              <li>Combine dragon fruit, mango, and mint in a bowl.</li>
+              <li>Drizzle with lime juice and toss gently.</li>
+              <li>Serve fresh at room temperature.</li>
+            </ol>
+            <p class="mt-2"><strong>Time:</strong> 10 min | <strong>Temperature:</strong> Room temp</p>
+          </div>
+        </article>
+      </div>
     </div>
-</section>
+  </section>
 
-<!-- GALLERY SECTION -->
-<section id="gallery">
-    <h2 class="section-title">Gallery</h2>
-    <div class="gallery">
-        <img src="https://source.unsplash.com/400x400/?dragon-fruit-plant" alt="Dragon Fruit Plant">
-        <img src="https://source.unsplash.com/400x400/?dragon-fruit-sliced" alt="Dragon Fruit Slices">
-        <img src="https://source.unsplash.com/400x400/?dragon-fruit-dessert" alt="Dragon Fruit Dessert">
-        <img src="https://source.unsplash.com/400x400/?dragon-fruit-drink" alt="Dragon Fruit Drink">
-        <img src="https://source.unsplash.com/400x400/?dragon-fruit-farm" alt="Dragon Fruit Farm">
-        <img src="https://source.unsplash.com/400x400/?dragon-fruit-market" alt="Dragon Fruit Market">
+  <!-- Gallery -->
+  <section id="gallery" class="py-12 bg-white">
+    <div class="container mx-auto px-6 max-w-6xl">
+      <h2 class="text-3xl font-bold text-dragon-600 mb-6">Gallery</h2>
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+        <img src="https://images.unsplash.com/photo-1547785864-1f7e52b5c4f3?auto=format&fit=crop&w=800&q=80" alt="dragon fruit 1" class="w-full h-48 object-cover rounded-lg shadow cursor-pointer gallery-item" />
+        <img src="https://images.unsplash.com/photo-1544025162-d76694265947?auto=format&fit=crop&w=800&q=80" alt="dragon fruit 2" class="w-full h-48 object-cover rounded-lg shadow cursor-pointer gallery-item" />
+        <img src="https://images.unsplash.com/photo-1604908177522-4f3b3c2d9b2f?auto=format&fit=crop&w=800&q=80" alt="dragon fruit 3" class="w-full h-48 object-cover rounded-lg shadow cursor-pointer gallery-item" />
+        <img src="https://images.unsplash.com/photo-1592928301383-7b8f0c2b0b72?auto=format&fit=crop&w=800&q=80" alt="dragon fruit 4" class="w-full h-48 object-cover rounded-lg shadow cursor-pointer gallery-item" />
+      </div>
     </div>
-</section>
+  </section>
 
-<!-- CONTACT SECTION -->
-<section id="contact">
-    <h2 class="section-title">Contact Us</h2>
-    <p style="text-align:center;">Have questions or want to share your dragon fruit creations? Reach out!</p>
-    <form style="max-width:600px;margin:auto;display:flex;flex-direction:column;gap:15px;">
-        <input type="text" placeholder="Your Name" required style="padding:10px;border-radius:10px;border:1px solid #ff3399;">
-        <input type="email" placeholder="Your Email" required style="padding:10px;border-radius:10px;border:1px solid #ff3399;">
-        <textarea placeholder="Your Message" rows="5" style="padding:10px;border-radius:10px;border:1px solid #ff3399;"></textarea>
-        <button type="submit" style="padding:15px;background:#ff3399;color:white;border:none;border-radius:10px;font-weight:bold;cursor:pointer;">Send Message</button>
-    </form>
-</section>
+  <!-- Fun Facts / Newsletter / Footer -->
+  <section class="py-12 bg-dragon-600 text-white">
+    <div class="container mx-auto px-6">
+      <div class="grid md:grid-cols-2 gap-8 items-center">
+        <div>
+          <h2 class="text-3xl font-bold mb-4">Fun Facts</h2>
+          <ul class="list-disc list-inside space-y-2 text-dragon-100">
+            <li>Dragon fruit flowers are large and typically bloom at night; pollinators include bats and moths.</li>
+            <li>The fruit is about 90% water, making it highly hydrating.</li>
+            <li>Small black seeds contain healthy fats such as omega-3 and omega-6 in trace amounts.</li>
+            <li>Some varieties have vivid red flesh high in betalain pigments, powerful antioxidants.</li>
+            <li>Plants can live and produce fruit for many years when well cared for.</li>
+          </ul>
+        </div>
 
-<!-- FOOTER -->
-<footer>
-    <p>&copy; 2025 DragonFruit Delight | Designed with ❤️ by You</p>
-</footer>
+        <div class="bg-white rounded-xl p-6 text-gray-800">
+          <h3 class="text-xl font-semibold mb-3">Stay Updated</h3>
+          <p class="text-sm mb-4">Subscribe for recipes, cultivation tips, and research updates.</p>
+          <form id="newsletter" class="flex gap-2">
+            <input type="email" id="newsletter-email" placeholder="Your email address" class="flex-1 px-4 py-3 rounded-full border focus:outline-none" required />
+            <button class="bg-dragon-500 text-white px-6 py-3 rounded-full" type="submit">Subscribe</button>
+          </form>
+          <p id="newsletter-msg" class="text-sm mt-2 text-dragon-200"></p>
+        </div>
+      </div>
+    </div>
+  </section>
 
-<!-- BACK TO TOP BUTTON -->
-<button id="back-to-top">&#8679;</button>
+  <footer class="bg-dragon-800 text-white py-8">
+    <div class="container mx-auto px-6">
+      <div class="grid md:grid-cols-3 gap-6">
+        <div>
+          <h4 class="font-bold mb-2">DragonFruit Delight</h4>
+          <p class="text-dragon-200">Exploring the vibrant world of dragon fruit through nutrition, recipes, and cultivation.</p>
+        </div>
+        <div>
+          <h4 class="font-semibold mb-2">Quick Links</h4>
+          <ul class="text-dragon-200 space-y-1">
+            <li><a href="#intro">Intro</a></li>
+            <li><a href="#nutrition">Nutrition</a></li>
+            <li><a href="#lifecycle">Life Cycle</a></li>
+            <li><a href="#recipes">Recipes</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="font-semibold mb-2">Contact</h4>
+          <p class="text-dragon-200">hello@dragonfruitdelight.com</p>
+        </div>
+      </div>
 
-<!-- JS -->
-<script>
-// TAB FUNCTIONALITY
-const tabs = document.querySelectorAll('.tab');
-const contents = document.querySelectorAll('.tab-content');
-tabs.forEach(tab => {
-    tab.addEventListener('click', () => {
-        tabs.forEach(t => t.classList.remove('active'));
-        contents.forEach(c => c.classList.remove('active'));
-        tab.classList.add('active');
-        document.getElementById('tab-' + tab.dataset.tab).classList.add('active');
+      <div class="mt-6 text-center text-dragon-300">
+        &copy; <span id="year"></span> DragonFruit Delight. All rights reserved.
+      </div>
+    </div>
+  </footer>
+
+  <!-- Floating button for random fact -->
+  <div class="fab">
+    <button id="fact-btn" class="bg-dragon-500 text-white w-14 h-14 rounded-full flex items-center justify-center shadow-xl" aria-label="random fact">
+      <i data-feather="message-circle" class="w-6 h-6"></i>
+    </button>
+  </div>
+
+  <!-- Lightbox -->
+  <div id="lightbox" onclick="this.style.display='none'" role="dialog" aria-hidden="true">
+    <img id="lightbox-img" src="" alt="expanded" />
+  </div>
+
+  <script>
+    // initialize icons
+    feather.replace();
+
+    // set year
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // newsletter simple client-side mock
+    document.getElementById('newsletter').addEventListener('submit', function(e){
+      e.preventDefault();
+      const email = document.getElementById('newsletter-email').value.trim();
+      if(!email){ document.getElementById('newsletter-msg').textContent='Please enter an email.'; return; }
+      document.getElementById('newsletter-msg').textContent='Thanks! We saved your email locally for demo purposes.';
+      const list = JSON.parse(localStorage.getItem('newsletter')||'[]');
+      list.push({email, date:new Date().toISOString()});
+      localStorage.setItem('newsletter', JSON.stringify(list));
+      document.getElementById('newsletter-email').value='';
     });
-});
 
-// BACK TO TOP
-const backToTop = document.getElementById('back-to-top');
-window.addEventListener('scroll', () => {
-    if(window.scrollY > 500) backToTop.style.display = 'block';
-    else backToTop.style.display = 'none';
-});
-backToTop.addEventListener('click', () => {
-    window.scrollTo({top:0, behavior:'smooth'});
-});
-</script>
+    // random facts
+    const facts = [
+      "Dragon fruit contains prebiotics that feed beneficial gut bacteria.",
+      "The red varieties get their color from betalains, a type of antioxidant.",
+      "Dragon fruit flowers only bloom at night and are typically pollinated by nocturnal animals.",
+      "Seed counts vary but black seeds provide small amounts of healthy fats.",
+      "A single plant can produce fruit multiple times per year under good care."
+    ];
+    document.getElementById('fact-btn').addEventListener('click', ()=>{
+      alert('Did you know?\\n\\n' + facts[Math.floor(Math.random()*facts.length)]);
+    });
+
+    // smooth scrolling on internal links
+    document.querySelectorAll('a[href^="#"]').forEach(a=>{
+      a.addEventListener('click', function(e){
+        const target = document.querySelector(this.getAttribute('href'));
+        if(target){ e.preventDefault(); target.scrollIntoView({behavior:'smooth'}); }
+      });
+    });
+
+    // gallery lightbox
+    document.querySelectorAll('.gallery-item').forEach(img=>{
+      img.addEventListener('click', ()=>{
+        document.getElementById('lightbox-img').src = img.src;
+        document.getElementById('lightbox').style.display = 'flex';
+      });
+    });
+
+    // interactive timeline: show details for lifecycle
+    const timelineInfo = {
+      seedling: "Cuttings or seeds are planted and trained on supports; initial root establishment takes weeks to months.",
+      flower: "Night-blooming flowers open for pollination; managed pollination improves fruit set in some farms.",
+      harvest: "Hand-harvested when color and firmness indicate ripeness; packed in ventilated crates."
+    };
+    document.querySelectorAll('.timeline-step').forEach(el=>{
+      el.addEventListener('click', ()=>{
+        document.querySelectorAll('.timeline-step').forEach(x=>x.classList.remove('step-active'));
+        el.classList.add('step-active');
+        const step = el.getAttribute('data-step') || '';
+        const info = timelineInfo[step] || '';
+        const timelineInfoNode = document.getElementById('timeline-info');
+        if(timelineInfoNode) timelineInfoNode.textContent = info;
+      });
+    });
+
+    // journey interactive details
+    const journeyData = {
+      growth: {
+        text: "Growth: Trellising, irrigation, pruning, and pest management are applied to encourage healthy vines and fruit production.",
+        media: [
+          "https://images.unsplash.com/photo-1506808547685-e2ba962dedf7?auto=format&fit=crop&w=600&q=60",
+          "https://images.unsplash.com/photo-1501004318641-b39e6451bec6?auto=format&fit=crop&w=600&q=60"
+        ]
+      },
+      harvest: {
+        text: "Harvest & Packing: Workers hand-pick fruit, sort for quality, wash if needed, and pack into breathable crates to reduce bruising.",
+        media: [
+          "https://images.unsplash.com/photo-1516126491303-6f54240b3b55?auto=format&fit=crop&w=600&q=60",
+          "https://images.unsplash.com/photo-1544025162-d76694265947?auto=format&fit=crop&w=600&q=60"
+        ]
+      },
+      transport: {
+        text: "Transport & Retail: For long distances, controlled-cooling trucks or air freight maintain freshness. Retailers display fresh or frozen fruit depending on supply chains.",
+        media: [
+          "https://images.unsplash.com/photo-1523381215794-2f5d4c1b3f4c?auto=format&fit=crop&w=600&q=60"
+        ]
+      }
+    };
+
+    document.querySelectorAll('[data-journey]').forEach(el=>{
+      el.addEventListener('click', ()=>{
+        document.querySelectorAll('[data-journey]').forEach(x=>x.classList.remove('step-active'));
+        el.classList.add('step-active');
+        const key = el.getAttribute('data-journey');
+        const info = journeyData[key];
+        if(!info) return;
+        document.getElementById('journey-text').textContent = info.text;
+        const media = document.getElementById('journey-media');
+        media.innerHTML = '';
+        info.media.forEach(src=>{
+          const img = document.createElement('img');
+          img.src = src + '?auto=format&fit=crop&w=400&q=60';
+          img.className = 'rounded shadow';
+          img.alt = 'Journey image';
+          media.appendChild(img);
+        });
+      });
+    });
+
+    // logo tap easter — simple 5-tap feedback
+    let logoTaps = 0;
+    const logoBtn = document.getElementById('logo-btn');
+    if(logoBtn){
+      logoBtn.addEventListener('click', ()=>{
+        logoTaps++;
+        if(logoTaps >= 5){
+          alert('Secret: You found a small surprise! Enjoy learning about dragon fruit.');
+          logoTaps = 0;
+        }
+        setTimeout(()=>{ logoTaps = 0; }, 1500);
+      });
+    }
+
+    // timeline default select (safely)
+    const steps = document.querySelectorAll('.timeline-step');
+    if(steps && steps.length) steps[0].click();
+  </script>
+
+  <!-- Nutrition citation (single authoritative source used for numeric claims) -->
+  <div style="display:none">Nutrition data reference: Nutrition Advance (comprehensive review and values).</div>
 </body>
 </html>
