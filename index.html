@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>DragonFruit Delight — All About Dragon Fruit</title>
+  <title>DragonFruit Delight — From Farm to Fork</title>
 
   <!-- Tailwind -->
   <script src="https://cdn.tailwindcss.com"></script>
@@ -51,10 +51,6 @@
       transform:translateY(-8px) scale(1.02);
       box-shadow:0 18px 40px rgba(0,0,0,0.12);
     }
-    .fab { position:fixed; right:1.5rem; bottom:1.5rem; z-index:40; }
-    .step-active { border: 2px solid #ff1971; transform: translateY(-6px); transition: all .2s ease; }
-    .timeline-step { cursor: pointer; transition: transform .18s ease, box-shadow .18s ease; }
-    .recipe-card { border-left: 6px solid #ff1971; padding-left: 1rem; }
     #lightbox {
       position:fixed; left:0;top:0;width:100%;height:100%;
       background:rgba(0,0,0,0.85);
@@ -64,6 +60,9 @@
       max-width:95vw; max-height:95vh; border-radius:8px;
       box-shadow:0 20px 60px rgba(0,0,0,0.6);
     }
+    table { width:100%; border-collapse:collapse; margin-top:1rem; }
+    th, td { border:1px solid #ffd2e6; padding:0.75rem; text-align:left; }
+    th { background:#ffeff7; color:#b3004d; }
   </style>
 </head>
 
@@ -72,36 +71,35 @@
   <!-- Navbar -->
   <nav class="bg-dragon-500 text-white shadow">
     <div class="container mx-auto px-6 py-3 flex items-center justify-between">
-      <button id="logo-btn" class="flex items-center space-x-2 focus:outline-none">
+      <div class="flex items-center space-x-2">
         <i data-feather="heart" class="w-6 h-6"></i>
         <span class="font-bold text-lg">DragonFruit Delight</span>
-      </button>
+      </div>
       <div class="hidden md:flex space-x-6">
         <a href="#about" class="hover:text-dragon-200">About</a>
         <a href="#nutrition" class="hover:text-dragon-200">Nutrition</a>
-        <a href="#lifecycle" class="hover:text-dragon-200">Life Cycle</a>
+        <a href="#journey" class="hover:text-dragon-200">Farm to Fork</a>
         <a href="#recipes" class="hover:text-dragon-200">Recipes</a>
         <a href="#gallery" class="hover:text-dragon-200">Gallery</a>
+        <a href="#references" class="hover:text-dragon-200">References</a>
       </div>
     </div>
   </nav>
 
-  <!-- Hero Section -->
-  <section class="bg-dragon-100 py-12" id="about">
+  <!-- Hero / About -->
+  <section id="about" class="bg-dragon-100 py-12">
     <div class="container mx-auto px-6 flex flex-col md:flex-row items-center">
       <div class="md:w-1/2 mb-6 md:mb-0">
         <h1 class="text-4xl font-bold gradient-text mb-4">Discover the Magic of Dragon Fruit!</h1>
         <p class="text-gray-700 mb-4">
-          Dragon fruit, also called pitaya, is one of the coolest fruits ever! It grows on a cactus and has bright pink skin with green scales, kind of like a dragon’s scales. The inside can be white or hot pink with lots of tiny black seeds.
+          Dragon fruit (also called pitaya) is a tropical fruit that grows on a cactus plant. It’s known for its bright pink skin with green scales that look like a dragon’s. Inside, it can be white or deep pink with tiny black seeds.
         </p>
         <p class="text-gray-700">
-          It tastes a bit like a mix between a kiwi and a pear — super fresh and slightly sweet. Farmers grow it in warm places like Vietnam, Thailand, Australia, and South America because it loves sunlight and dry soil.
+          Dragon fruit comes from Central America but is now grown in Australia, Vietnam, Thailand, and other tropical countries. It tastes like a mix of kiwi and pear — sweet, light, and refreshing!
         </p>
       </div>
       <div class="md:w-1/2 flex justify-center">
-        <img src="https://images.unsplash.com/photo-1544025162-d76694265947?auto=format&fit=crop&w=900&q=80"
-             alt="Dragon fruit hero"
-             class="rounded-2xl shadow-2xl hero-image max-w-md" />
+        <img src="https://images.unsplash.com/photo-1544025162-d76694265947?auto=format&fit=crop&w=900&q=80" alt="Dragon fruit" class="rounded-2xl shadow-2xl hero-image max-w-md" />
       </div>
     </div>
   </section>
@@ -109,70 +107,115 @@
   <!-- Nutrition -->
   <section id="nutrition" class="py-12 bg-white">
     <div class="container mx-auto px-6 max-w-4xl">
-      <h2 class="text-3xl font-bold text-dragon-600 mb-4">Nutritional Value</h2>
+      <h2 class="text-3xl font-bold text-dragon-600 mb-4">Nutritional Value & Health Benefits</h2>
       <p class="text-gray-700 mb-4">
-        Dragon fruit isn’t just pretty — it’s super healthy too! It’s low in calories but full of fiber, vitamins, and minerals. It helps with digestion, keeps your immune system strong, and has antioxidants that protect your body from bad stuff like pollution and stress.
-      </p>
-      <p class="text-gray-700">
-        Eating dragon fruit helps your skin glow, gives you more energy, and keeps you hydrated. Some people even say it helps them feel more awake during school or sports!
+        Dragon fruit is packed with nutrients that keep your body healthy and strong. It’s low in calories, high in fiber, and full of vitamins and antioxidants that help your body fight off sickness and keep your skin clear.
       </p>
 
-      <div class="grid md:grid-cols-3 gap-6 mt-6">
-        <div class="bg-white p-6 rounded-xl fact-card">
-          <h3 class="font-semibold text-dragon-500 mb-2">Calories</h3>
-          <p class="text-gray-600">Only about 57 kcal per 100 g</p>
-        </div>
-        <div class="bg-white p-6 rounded-xl fact-card">
-          <h3 class="font-semibold text-dragon-500 mb-2">Fiber</h3>
-          <p class="text-gray-600">Around 3 g per 100 g — keeps your tummy happy!</p>
-        </div>
-        <div class="bg-white p-6 rounded-xl fact-card">
-          <h3 class="font-semibold text-dragon-500 mb-2">Vitamin C & Antioxidants</h3>
-          <p class="text-gray-600">Helps your immune system and gives you glowing skin!</p>
-        </div>
-      </div>
+      <table>
+        <thead>
+          <tr>
+            <th>Nutrient</th>
+            <th>Amount (per 100g)</th>
+            <th>Benefit</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td>Calories</td><td>57 kcal</td><td>Gives you energy without too much sugar</td></tr>
+          <tr><td>Protein</td><td>1.1 g</td><td>Builds muscles and repairs body cells</td></tr>
+          <tr><td>Fiber</td><td>3 g</td><td>Helps with digestion and keeps you full</td></tr>
+          <tr><td>Vitamin C</td><td>9 mg</td><td>Boosts your immune system</td></tr>
+          <tr><td>Iron</td><td>0.7 mg</td><td>Helps carry oxygen in your blood</td></tr>
+          <tr><td>Magnesium</td><td>10 mg</td><td>Supports nerves and muscles</td></tr>
+          <tr><td>Antioxidants</td><td>High</td><td>Protects cells from damage</td></tr>
+        </tbody>
+      </table>
+
+      <p class="mt-4 text-gray-700">
+        Because of these nutrients, dragon fruit is a great choice for breakfast, snacks, or even desserts. It’s also hydrating and helps you feel fresh on hot days.
+      </p>
     </div>
   </section>
 
-  <!-- Life Cycle -->
-  <section id="lifecycle" class="py-12 bg-dragon-100">
-    <div class="container mx-auto px-6 max-w-4xl">
-      <h2 class="text-3xl font-bold text-dragon-600 mb-4">Life Cycle of a Dragon Fruit</h2>
+  <!-- Farm to Fork -->
+  <section id="journey" class="py-12 bg-dragon-100">
+    <div class="container mx-auto px-6 max-w-5xl">
+      <h2 class="text-3xl font-bold text-dragon-600 mb-6">The Farm to Fork Journey</h2>
       <p class="text-gray-700 mb-6">
-        The life of a dragon fruit plant is super cool! It starts as a tiny seed or cutting and grows into a tall cactus that climbs poles or fences. Here’s how it grows step-by-step:
+        Here’s how dragon fruit travels from the farm to your fork — showing how it’s grown, picked, packed, and delivered for you to enjoy:
       </p>
-      <ol class="list-decimal list-inside text-gray-700 space-y-3">
-        <li><strong>Seedling:</strong> Small cuttings or seeds are planted and start growing roots.</li>
-        <li><strong>Growing:</strong> The cactus grows tall and spreads out its branches.</li>
-        <li><strong>Flowering:</strong> Big white flowers open at night — they smell amazing and attract bats or moths!</li>
-        <li><strong>Fruit Time:</strong> The flowers turn into fruit that ripens in 30–50 days.</li>
-        <li><strong>Harvest:</strong> Farmers pick the ripe dragon fruit by hand and send them to shops.</li>
-      </ol>
+
+      <div class="space-y-4 text-gray-700">
+        <p><strong>1. Growing:</strong> Dragon fruit grows on a climbing cactus in warm, sunny places like northern Australia and Vietnam. Farmers plant cuttings or seeds and let the cactus climb poles or trellises.</p>
+        <p><strong>2. Flowering & Pollination:</strong> The cactus grows large white flowers that bloom at night and are pollinated by bats or moths.</p>
+        <p><strong>3. Harvesting:</strong> After 30–50 days, the fruit ripens and turns bright pink. Farmers carefully pick the fruit by hand so the skin doesn’t get damaged.</p>
+        <p><strong>4. Packaging:</strong> The fruit is washed, checked for quality, and packed into boxes. Each fruit is often wrapped or cushioned to stop bruising.</p>
+        <p><strong>5. Transport:</strong> Boxes are sent by truck to local markets or by ship and plane to other countries. They’re kept cool to stay fresh.</p>
+        <p><strong>6. Supermarkets & Markets:</strong> The dragon fruit arrives at shops where customers can buy it. Sometimes it’s also sold at farmers’ markets straight from the grower.</p>
+        <p><strong>7. On Your Plate:</strong> Finally, you slice it open, scoop out the sweet flesh, and enjoy it fresh, in smoothies, or desserts!</p>
+      </div>
     </div>
   </section>
 
   <!-- Recipes -->
   <section id="recipes" class="py-12 bg-white">
     <div class="container mx-auto px-6 max-w-5xl">
-      <h2 class="text-3xl font-bold text-dragon-600 mb-6">Tasty Dragon Fruit Recipes</h2>
+      <h2 class="text-3xl font-bold text-dragon-600 mb-6">Delicious Dragon Fruit Recipes</h2>
 
-      <div class="grid md:grid-cols-2 gap-6">
+      <div class="space-y-8">
         <!-- Smoothie -->
-        <article class="p-6 bg-dragon-50 rounded-xl shadow recipe-card">
-          <h3 class="text-xl font-semibold text-dragon-500">Dragon Fruit Smoothie Bowl</h3>
-          <p class="mt-2 text-gray-700">Blend frozen dragon fruit, banana, and coconut milk for a colorful and refreshing smoothie bowl! Add granola, chia seeds, or kiwi on top. Perfect for breakfast or after school.</p>
+        <article class="bg-dragon-50 p-6 rounded-xl shadow">
+          <h3 class="text-xl font-semibold text-dragon-500">1. Dragon Fruit Smoothie Bowl</h3>
+          <p><strong>Serves:</strong> 2 &nbsp; | &nbsp; <strong>Time:</strong> 10 mins &nbsp; | &nbsp; <strong>Difficulty:</strong> Easy</p>
+          <p class="mt-2"><strong>Ingredients:</strong></p>
+          <ul class="list-disc list-inside">
+            <li>1 frozen dragon fruit (pink variety)</li>
+            <li>1 banana</li>
+            <li>½ cup coconut milk</li>
+            <li>Toppings: granola, kiwi slices, chia seeds</li>
+          </ul>
+          <p class="mt-2"><strong>Method:</strong></p>
+          <ol class="list-decimal list-inside">
+            <li>Blend the dragon fruit, banana, and coconut milk until smooth.</li>
+            <li>Pour into bowls and add your favourite toppings.</li>
+            <li>Enjoy straight away for a refreshing breakfast!</li>
+          </ol>
         </article>
 
         <!-- Salad -->
-        <article class="p-6 bg-dragon-50 rounded-xl shadow recipe-card">
-          <h3 class="text-xl font-semibold text-dragon-500">Tropical Dragon Fruit Salad</h3>
-          <p class="mt-2 text-gray-700">Mix dragon fruit with mango, mint, and a splash of lime juice. It’s super fresh and makes a great snack on a hot day!</p>
+        <article class="bg-dragon-50 p-6 rounded-xl shadow">
+          <h3 class="text-xl font-semibold text-dragon-500">2. Tropical Dragon Fruit Salad</h3>
+          <p><strong>Serves:</strong> 4 &nbsp; | &nbsp; <strong>Time:</strong> 15 mins &nbsp; | &nbsp; <strong>Difficulty:</strong> Easy</p>
+          <ul class="list-disc list-inside">
+            <li>1 dragon fruit, peeled and cubed</li>
+            <li>1 mango, diced</li>
+            <li>½ pineapple, chopped</li>
+            <li>1 lime (juiced)</li>
+            <li>Fresh mint leaves</li>
+          </ul>
+          <p class="mt-2"><strong>Method:</strong></p>
+          <ol class="list-decimal list-inside">
+            <li>Mix all the fruit in a large bowl.</li>
+            <li>Drizzle with lime juice and stir gently.</li>
+            <li>Top with mint leaves and chill before serving.</li>
+          </ol>
         </article>
 
         <!-- Popsicles -->
-        <article class="p-6 bg-dragon-50 rounded-xl shadow recipe-card">
-          <h3 class="text-xl font-semibold text-dragon-500">Dragon Fruit Popsicles</h3>
-          <p class="mt-2 text-gray-700">Blend dragon fruit with coconut water and honey, pour into molds, and freeze! They turn into bright pink popsicles that are healthy and delicious.</p>
+        <article class="bg-dragon-50 p-6 rounded-xl shadow">
+          <h3 class="text-xl font-semibold text-dragon-500">3. Dragon Fruit Popsicles</h3>
+          <p><strong>Serves:</strong> 6 &nbsp; | &nbsp; <strong>Time:</strong> 15 mins + 4 hrs freezing &nbsp; | &nbsp; <strong>Difficulty:</strong> Easy</p>
+          <ul class="list-disc list-inside">
+            <li>2 dragon fruits</li>
+            <li>1 tbsp honey</li>
+            <li>½ cup coconut water</li>
+          </ul>
+          <p class="mt-2"><strong>Method:</strong></p>
+          <ol class="list-decimal list-inside">
+            <li>Blend all ingredients until smooth.</li>
+            <li>Pour into popsicle molds.</li>
+            <li>Freeze for at least 4 hours and enjoy!</li>
+          </ol>
         </article>
       </div>
     </div>
@@ -182,13 +225,25 @@
   <section id="gallery" class="py-12 bg-dragon-100">
     <div class="container mx-auto px-6 max-w-6xl">
       <h2 class="text-3xl font-bold text-dragon-600 mb-6">Gallery</h2>
-      <p class="text-gray-700 mb-4">Here are some awesome pictures of dragon fruit, farms, and tasty foods made with it!</p>
+      <p class="text-gray-700 mb-4">Check out how amazing dragon fruit looks and how it’s used in different meals!</p>
       <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
-        <img src="https://images.unsplash.com/photo-1544025162-d76694265947?auto=format&fit=crop&w=800&q=80" alt="dragon fruit close-up" class="w-full h-48 object-cover rounded-lg shadow cursor-pointer gallery-item" />
-        <img src="https://images.unsplash.com/photo-1592928301383-7b8f0c2b0b72?auto=format&fit=crop&w=800&q=80" alt="dragon fruit popsicles" class="w-full h-48 object-cover rounded-lg shadow cursor-pointer gallery-item" />
-        <img src="https://images.unsplash.com/photo-1604908177522-4f3b3c2d9b2f?auto=format&fit=crop&w=800&q=80" alt="smoothie bowl" class="w-full h-48 object-cover rounded-lg shadow cursor-pointer gallery-item" />
-        <img src="https://images.unsplash.com/photo-1528825871115-3581a5387919?auto=format&fit=crop&w=800&q=80" alt="dragon fruit salad" class="w-full h-48 object-cover rounded-lg shadow cursor-pointer gallery-item" />
+        <img src="https://images.unsplash.com/photo-1592928301383-7b8f0c2b0b72?auto=format&fit=crop&w=800&q=80" alt="Dragon fruit popsicles" class="rounded-lg shadow cursor-pointer gallery-item" />
+        <img src="https://images.unsplash.com/photo-1604908177522-4f3b3c2d9b2f?auto=format&fit=crop&w=800&q=80" alt="Smoothie bowl" class="rounded-lg shadow cursor-pointer gallery-item" />
+        <img src="https://images.unsplash.com/photo-1528825871115-3581a5387919?auto=format&fit=crop&w=800&q=80" alt="Salad" class="rounded-lg shadow cursor-pointer gallery-item" />
+        <img src="https://images.unsplash.com/photo-1544025162-d76694265947?auto=format&fit=crop&w=800&q=80" alt="Dragon fruit close-up" class="rounded-lg shadow cursor-pointer gallery-item" />
       </div>
+    </div>
+  </section>
+
+  <!-- References -->
+  <section id="references" class="py-12 bg-white">
+    <div class="container mx-auto px-6 max-w-4xl">
+      <h2 class="text-3xl font-bold text-dragon-600 mb-4">References</h2>
+      <ul class="list-disc list-inside text-gray-700">
+        <li>Healthline (2024). “Dragon Fruit: Nutrition, Benefits and How to Eat It.” <a href="https://www.healthline.com/nutrition/dragon-fruit" class="text-dragon-500 underline">https://www.healthline.com/nutrition/dragon-fruit</a></li>
+        <li>Australian Government, Agriculture Department (2023). “Growing Dragon Fruit in Australia.” <a href="https://www.agriculture.gov.au/" class="text-dragon-500 underline">agriculture.gov.au</a></li>
+        <li>Mrs Duncan (2025). “Farm to Fork Educational Website Brief.” School Curriculum Document.</li>
+      </ul>
     </div>
   </section>
 
@@ -199,30 +254,16 @@
 
   <!-- Footer -->
   <footer class="bg-dragon-500 text-white text-center py-6">
-    <p>© 2025 DragonFruit Delight </p>
+    <p>© 2025 DragonFruit Delight | Educational Website Project 🌺</p>
   </footer>
 
   <script>
     feather.replace();
-
-    // Lightbox
-    document.querySelectorAll('.gallery-item').forEach(img => {
-      img.addEventListener('click', () => {
-        document.getElementById('lightbox-img').src = img.src;
-        document.getElementById('lightbox').style.display = 'flex';
+    document.querySelectorAll('.gallery-item').forEach(img=>{
+      img.addEventListener('click',()=>{
+        document.getElementById('lightbox-img').src=img.src;
+        document.getElementById('lightbox').style.display='flex';
       });
-    });
-
-    // Easter egg: logo clicks
-    let logoTaps = 0;
-    const logoBtn = document.getElementById('logo-btn');
-    logoBtn.addEventListener('click', () => {
-      logoTaps++;
-      if (logoTaps >= 5) {
-        alert('🎉 You found the secret! Dragon fruit is actually part of the cactus family!');
-        logoTaps = 0;
-      }
-      setTimeout(() => { logoTaps = 0; }, 1500);
     });
   </script>
 </body>
